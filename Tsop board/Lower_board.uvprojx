@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -339,7 +339,7 @@
               <MiscControls>--cpp</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\src\spl;.\src\pins;.\src\main;.\src\miltiplexer;.\src\dma;.\src\adc;.\src\uart;.\src\global_macros;.\src\spi</IncludePath>
+              <IncludePath>.\src\spl;.\src\pins;.\src\main;.\src\miltiplexer;.\src\dma;.\src\adc;.\src\uart;.\src\global_macros;.\src\spi;.\src\time_service</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -507,6 +507,21 @@
               <FileName>stm32f1xx_global_macros.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\global_macros\stm32f1xx_global_macros.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>time_servise</GroupName>
+          <Files>
+            <File>
+              <FileName>time_service.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\time_service\time_service.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>time_service.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\time_service\time_service.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -5,11 +5,12 @@
 #include <dma.h>
 #include <multiplexer.h>
 #include <math.h>
+#include <time_service.h>
 #define CHANNEL1 1
 #define CHANNEL2 2
 #define CHANNEL3 3
 #define CHANNEL4 4
-#define SORT_SIZE 20
+#define SORT_SIZE 5
 #define PI 3.141592653589793
 
 void delay(unsigned int nCount);
@@ -19,10 +20,14 @@ double getX(int tsop_results[]);
 double getY(int tsop_results[]);
 double getDist(double x, double y);
 void qsortRecursive(int *mas, int size);
+uint8_t crc8(uint8_t* data, int len);
 //GPIO_InitTypeDef GPIO_InitStruct;
- 
+
 int main (void)
 {
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+	time_service::init();
+	time_service::startTime();
 	Pin tx(GPIO_Pin_9,
 				 GPIOA,
 				 GPIO_Mode_AF_PP,
@@ -152,11 +157,13 @@ int main (void)
 	spi spi(0, sclk, mosi, miso, 1, ssArray);
 	spi.spiInit();*/
 
-	Multiplexer mp(state1, state2, state3, state4, mpDma, 2, DMA1_Channel1);
-	int dataNS[32], data[32];
+	Multiplexer mp(state4, state3, state2, state1, mpDma, 2, DMA1_Channel1);
+  int data[32];
 	int nonF1[SORT_SIZE], nonF2[SORT_SIZE];
-	volatile double x, y, dist, angle;
+	volatile double dist, angle;
+	double x, y;
 	int i;
+	volatile int a;
 	
 	while (1)
 	{
@@ -170,34 +177,57 @@ int main (void)
 			qsortRecursive(nonF1, SORT_SIZE);
 			qsortRecursive(nonF2, SORT_SIZE);
 
-			dataNS[i] = nonF1[SORT_SIZE / 2];
-			dataNS[16 + i] = nonF2[SORT_SIZE / 2];
-			if (dataNS[i] > 1100)
+			data[i] = nonF1[SORT_SIZE / 2];
+			data[16 + i] = nonF2[SORT_SIZE / 2];*/
+			
+			data[i] = mp.getPh1Value(i);
+			//time_service::delay_ms(5);
+			data[16 + i] = mp.getPh2Value(i);
+			//time_service::delay_ms(5);
+			
+			if (data[i] > 2000) {
 				data[i] = 0;
-			else
+			} else {
 				data[i] = 1;
-			if (dataNS[16 + i] > 1100)
+			}
+			
+			if (data[16 + i] > 2000) {
 				data[16 + i] = 0;
-			else
-				data[16 + i] = 1;*/
-				
-				data[i] = mp.getPh1Value(i);
-				data[16 + i] = mp.getPh2Value(i);
+			} else {
+				data[16 + i] = 1;
+			}
 		}
 		x = getX(data);
 		y = getY(data);
 	
 	
 		dist = getDist(x, y);
-		angle = getAngle(x, y);
+		angle = getAngle(x, y) - 135;
+		if (angle < 0) 
+			angle += 360;
 	
 		Uart::write(0xff);
-		Uart::write(angle / 2);
-		Uart::write(dist); 
-		//Uart::write(10);
-		//Uart::write(100);
-		//Uart::write(3);
+		Uart::write(uint8_t(angle / 2));
+		Uart::write(uint8_t(dist * 10)); 
+		//a = uint8_t(dist * 10);
+		uint8_t dt[2];
+		dt[0] = uint8_t(angle / 2);
+		dt[1] = uint8_t(dist * 10);
+		Uart::write(crc8(dt, 2)); 
 	}
+}
+
+uint8_t crc8(uint8_t* data, int len)
+{
+    int crc = 0xFF, i, j;
+    for (i = 0; i < len; i++) {
+        crc ^= data[i];
+        for (j = 0; j < 8; j++) {
+            if (crc & 0x80) crc = (char)((crc << 1) ^ 0x31);
+            else crc <<= 1;
+        }
+    }
+    return crc;
 }
 
 double toRadians(double degs) {
@@ -215,15 +245,15 @@ double getAngle(double x, double y) {
 
 double getX(int *tsop_results) {
   double x1 = 0;
-  for (int i = 0; i < 16; ++i)
-    x1 += sin(toRadians(double(22.5 * i))) * double(tsop_results[i]);
+  for (int i = 0; i < 32; ++i)
+    x1 += sin(toRadians(double(11.25 * i))) * double(tsop_results[i]);
   return x1;
 }
 
 double getY(int *tsop_results) {
   double y1 = 0;
-  for (int i = 0; i < 16; ++i)
-    y1 += cos(toRadians(double(22.5 * i))) * double(tsop_results[i]);
+  for (int i = 0; i < 32; ++i)
+    y1 += cos(toRadians(double(11.25 * i))) * double(tsop_results[i]);
   return y1;
 }
 

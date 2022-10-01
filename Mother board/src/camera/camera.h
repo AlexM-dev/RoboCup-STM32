@@ -28,7 +28,7 @@ class Camera
 		int8_t sign;
 		Pin m_tx, m_rx;
 		int8_t m_line;
-		int data[4];
+		volatile int data[4];
 		int goal;
 		int crc8(int* data, int len);
 };

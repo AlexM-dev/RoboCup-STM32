@@ -515,7 +515,7 @@ I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
 F (.\src\softI2C\softI2C.h)(0x5D3EAE48)()
-F (.\src\main\main.cpp)(0x6283F535)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\src\main\main.cpp)(0x63387C31)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
 I (.\src\global_macros\global_macros.h)(0x5CCB2BB4)
 I (.\src\global_macros\stm32f4xx_global_macros.h)(0x5CCB2BB4)
@@ -573,10 +573,10 @@ I (.\src\gyroscope\mpu9250.h)(0x627AACD5)
 I (.\src\gyroscope\stm32f407_sysFunc.h)(0x627AB561)
 I (.\src\gyroscope\mpu9250_registers.h)(0x62498414)
 I (.\src\strategy\strategy.h)(0x604F8112)
-I (.\src\camera\camera.h)(0x6283F6A9)
-I (.\src\usart2\usart2.h)(0x6092AEAC)
-I (.\src\lower_board\lower_board.h)(0x627E4D84)
-I (.\src\usart3\usart3.h)(0x5E232580)
+I (.\src\camera\camera.h)(0x631C7BC3)
+I (.\src\usart2\usart2.h)(0x631C80E2)
+I (.\src\lower_board\lower_board.h)(0x63349C73)
+I (.\src\usart3\usart3.h)(0x63383466)
 I (.\src\bluetooth_send\bluetooth_send.h)(0x627118D2)
 I (.\src\bluetooth_robot\bluetooth_robot.h)(0x5FB2A0AC)
 I (.\src\oled\ssd1306_fonts.h)(0x609C794A)
@@ -803,8 +803,8 @@ F (.\src\strategy\strategy.cpp)(0x604F8100)(--cpp -c --cpu Cortex-M4.fp.sp -g -O
 F (.\src\strategy\strategy.h)(0x604F8112)()
 F (.\src\buttonsModule\buttonsModule.h)(0x604F8058)()
 F (.\src\buttonsModule\buttonsModule.cpp)(0x604CC4F2)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\buttonsmodule.o --omf_browse .\objects\buttonsmodule.crf --depend .\objects\buttonsmodule.d)
-F (.\src\usart3\usart3.cpp)(0x627DC4B8)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\usart3.o --omf_browse .\objects\usart3.crf --depend .\objects\usart3.d)
-I (src\usart3\usart3.h)(0x5E232580)
+F (.\src\usart3\usart3.cpp)(0x6338391B)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\usart3.o --omf_browse .\objects\usart3.crf --depend .\objects\usart3.d)
+I (src\usart3\usart3.h)(0x63383466)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
 I (.\src\global_macros\global_macros.h)(0x5CCB2BB4)
 I (.\src\global_macros\stm32f4xx_global_macros.h)(0x5CCB2BB4)
@@ -842,7 +842,7 @@ I (.\src\spl4\inc\stm32f4xx_dac.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
-F (.\src\usart3\usart3.h)(0x5E232580)()
+F (.\src\usart3\usart3.h)(0x63383466)()
 F (.\src\usart6\usart6.cpp)(0x6008525E)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\usart6.o --omf_browse .\objects\usart6.crf --depend .\objects\usart6.d)
 I (src\usart6\usart6.h)(0x600853FC)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
@@ -883,8 +883,8 @@ I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
 F (.\src\usart6\usart6.h)(0x600853FC)()
-F (.\src\usart2\usart2.cpp)(0x6092AEAC)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\usart2.o --omf_browse .\objects\usart2.crf --depend .\objects\usart2.d)
-I (src\usart2\usart2.h)(0x6092AEAC)
+F (.\src\usart2\usart2.cpp)(0x631C80E2)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\usart2.o --omf_browse .\objects\usart2.crf --depend .\objects\usart2.d)
+I (src\usart2\usart2.h)(0x631C80E2)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
 I (.\src\global_macros\global_macros.h)(0x5CCB2BB4)
 I (.\src\global_macros\stm32f4xx_global_macros.h)(0x5CCB2BB4)
@@ -922,7 +922,7 @@ I (.\src\spl4\inc\stm32f4xx_dac.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
-F (.\src\usart2\usart2.h)(0x6092AEAC)()
+F (.\src\usart2\usart2.h)(0x631C80E2)()
 F (.\src\usart1\usart1.h)(0x5E232580)()
 F (.\src\usart1\usart1.cpp)(0x627BD430)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\usart1.o --omf_browse .\objects\usart1.crf --depend .\objects\usart1.d)
 I (src\usart1\usart1.h)(0x5E232580)
@@ -1183,9 +1183,9 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x602569C8)
 F (.\src\gyroscope\stm32f407_sysFunc.h)(0x627AB561)()
 F (.\src\gyroscope\stm32f407_wrappers.h)(0x6272867A)()
-F (.\src\camera\camera.h)(0x6283F6A9)()
-F (.\src\camera\camera.cpp)(0x6283F6A0)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\camera.o --omf_browse .\objects\camera.crf --depend .\objects\camera.d)
-I (src\camera\camera.h)(0x6283F6A9)
+F (.\src\camera\camera.h)(0x631C7BC3)()
+F (.\src\camera\camera.cpp)(0x631C8B7D)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\camera.o --omf_browse .\objects\camera.crf --depend .\objects\camera.d)
+I (src\camera\camera.h)(0x631C7BC3)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
 I (.\src\global_macros\global_macros.h)(0x5CCB2BB4)
 I (.\src\global_macros\stm32f4xx_global_macros.h)(0x5CCB2BB4)
@@ -1223,10 +1223,10 @@ I (.\src\spl4\inc\stm32f4xx_dac.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
-I (.\src\usart2\usart2.h)(0x6092AEAC)
+I (.\src\usart2\usart2.h)(0x631C80E2)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x602569C8)
-F (.\src\lower_board\lower_board.cpp)(0x627E4DCA)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\lower_board.o --omf_browse .\objects\lower_board.crf --depend .\objects\lower_board.d)
-I (src\lower_board\lower_board.h)(0x627E4D84)
+F (.\src\lower_board\lower_board.cpp)(0x633868B8)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\lower_board.o --omf_browse .\objects\lower_board.crf --depend .\objects\lower_board.d)
+I (src\lower_board\lower_board.h)(0x63349C73)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
 I (.\src\global_macros\global_macros.h)(0x5CCB2BB4)
 I (.\src\global_macros\stm32f4xx_global_macros.h)(0x5CCB2BB4)
@@ -1264,10 +1264,10 @@ I (.\src\spl4\inc\stm32f4xx_dac.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
-I (.\src\usart3\usart3.h)(0x5E232580)
+I (.\src\usart3\usart3.h)(0x63383466)
 I (.\src\gyroscope\stm32f407_sysFunc.h)(0x627AB561)
 I (.\src\time_service\time_service.h)(0x5D3186EE)
-F (.\src\lower_board\lower_board.h)(0x627E4D84)()
+F (.\src\lower_board\lower_board.h)(0x63349C73)()
 F (.\src\ultrasonic\ultrasonic.cpp)(0x5EFF1DEE)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\ultrasonic.o --omf_browse .\objects\ultrasonic.crf --depend .\objects\ultrasonic.d)
 I (src\ultrasonic\ultrasonic.h)(0x5EFF1DEE)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
@@ -1391,7 +1391,7 @@ I (.\src\spl4\inc\stm32f4xx_dac.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
-I (.\src\usart3\usart3.h)(0x5E232580)
+I (.\src\usart3\usart3.h)(0x63383466)
 F (.\src\bluetooth_robot\bluetooth_robot.cpp)(0x626FD862)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\bluetooth_robot.o --omf_browse .\objects\bluetooth_robot.crf --depend .\objects\bluetooth_robot.d)
 I (src\bluetooth_robot\bluetooth_robot.h)(0x5FB2A0AC)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
@@ -1431,7 +1431,7 @@ I (.\src\spl4\inc\stm32f4xx_dac.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
-I (.\src\usart3\usart3.h)(0x5E232580)
+I (.\src\usart3\usart3.h)(0x63383466)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x602569C8)
 F (.\src\bluetooth_robot\bluetooth_robot.h)(0x5FB2A0AC)()
 F (.\src\oled\ssd1306_fonts.h)(0x609C794A)()

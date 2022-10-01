@@ -16,6 +16,7 @@ class lowerBoard
 		int m_dist;
 		int m_angle; 
 		bool m_canSee;
+		int count;
 		unsigned long erri; 
 		int crc8(int* data, int len); 
 		int getFormatedAngle(int ang);

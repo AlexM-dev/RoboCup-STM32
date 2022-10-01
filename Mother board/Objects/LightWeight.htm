@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\LightWeight.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LightWeight.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue May 17 22:27:13 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Oct 01 20:44:23 2022
 <BR><P>
-<H3>Maximum Stack Usage =        912 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        920 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; line_sensors::line_sensors(unsigned) &rArr; initSPI(unsigned, bool, unsigned char, unsigned short, int, int, int, int) &rArr; initPin(unsigned short, unsigned char, unsigned char, unsigned char) &rArr; initPin(GPIO_TypeDef*, unsigned short, unsigned char, unsigned char, unsigned char) &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 <P>
@@ -244,7 +244,7 @@ Global Symbols
 <P><STRONG><a name="[125]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[6d]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 912 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 920 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; line_sensors::line_sensors(unsigned) &rArr; initSPI(unsigned, bool, unsigned char, unsigned short, int, int, int, int) &rArr; initPin(unsigned short, unsigned char, unsigned char, unsigned char) &rArr; initPin(GPIO_TypeDef*, unsigned short, unsigned char, unsigned char, unsigned char) &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -557,7 +557,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adc::Adc(ADC_TypeDef*, unsigned char, unsigned char, unsigned char, unsigned, Pin&)
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::Camera(Pin&, Pin&)
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::Camera(Pin&, Pin&)
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gyro::gyro(Pin&, Pin&)
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::lowerBoard(Pin&, Pin&)
 </UL>
@@ -583,10 +583,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
+<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
 </UL>
 
 <P><STRONG><a name="[75]"></a>__aeabi_errno_addr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text))
@@ -696,7 +696,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pin::pwmInit()
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart3::usartInit()
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::uartInit()
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::uartInit()
 </UL>
 
 <P><STRONG><a name="[83]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd))
@@ -863,7 +863,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[34]"></a>USART3_IRQHandler</STRONG> (Thumb, 152 bytes, Stack size 8 bytes, usart3.o(i.USART3_IRQHandler))
+<P><STRONG><a name="[34]"></a>USART3_IRQHandler</STRONG> (Thumb, 148 bytes, Stack size 8 bytes, usart3.o(i.USART3_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = USART3_IRQHandler &rArr; USART_ClearITPendingBit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearITPendingBit
@@ -896,7 +896,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart3::usartInit()
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart1::uartInit()
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::uartInit()
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::uartInit()
 </UL>
 
 <P><STRONG><a name="[93]"></a>USART_ITConfig</STRONG> (Thumb, 284 bytes, Stack size 32 bytes, stm32f4xx_usart.o(i.USART_ITConfig))
@@ -906,7 +906,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart3::usartInit()
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart1::uartInit()
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::uartInit()
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::uartInit()
 </UL>
 
 <P><STRONG><a name="[94]"></a>USART_Init</STRONG> (Thumb, 492 bytes, Stack size 48 bytes, stm32f4xx_usart.o(i.USART_Init))
@@ -917,17 +917,13 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart3::usartInit()
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart1::uartInit()
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::uartInit()
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::uartInit()
 </UL>
 
 <P><STRONG><a name="[84]"></a>SPIInterruptHandler(unsigned)</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, stm32f407_spi.o(i._Z19SPIInterruptHandlerj))
 <BR><BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI3_IRQHandler
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI2_IRQHandler
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_IRQHandler
-</UL>
-
-<P><STRONG><a name="[eb]"></a>getAngleMultipiller(float)</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, main.o(i._Z19getAngleMultipillerf))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[96]"></a>initPin(GPIO_TypeDef*, unsigned short, unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 456 bytes, Stack size 48 bytes, stm32f407_pin.o(i._Z7initPinP12GPIO_TypeDefthhh))
@@ -963,7 +959,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::read()
 </UL>
 
-<P><STRONG><a name="[9d]"></a>lowerBoard::read()</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, lower_board.o(i._ZN10lowerBoard4readEv))
+<P><STRONG><a name="[9d]"></a>lowerBoard::read()</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, lower_board.o(i._ZN10lowerBoard4readEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = lowerBoard::read() &rArr; lowerBoard::crc8(int*, int)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart3::available()
@@ -973,19 +969,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e7]"></a>lowerBoard::getDist()</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, lower_board.o(i._ZN10lowerBoard7getDistEv))
+<P><STRONG><a name="[ec]"></a>lowerBoard::getDist()</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, lower_board.o(i._ZN10lowerBoard7getDistEv))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e8]"></a>lowerBoard::getAngle()</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, lower_board.o(i._ZN10lowerBoard8getAngleEv))
+<P><STRONG><a name="[ea]"></a>lowerBoard::getAngle()</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, lower_board.o(i._ZN10lowerBoard8getAngleEv))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e6]"></a>lowerBoard::isCanSee()</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, lower_board.o(i._ZN10lowerBoard8isCanSeeEv))
+<P><STRONG><a name="[eb]"></a>lowerBoard::isCanSee()</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, lower_board.o(i._ZN10lowerBoard8isCanSeeEv))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a1]"></a>lowerBoard::lowerBoard(Pin&, Pin&)</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, lower_board.o(i._ZN10lowerBoardC1ER3PinS1_))
+<P><STRONG><a name="[a1]"></a>lowerBoard::lowerBoard(Pin&, Pin&)</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, lower_board.o(i._ZN10lowerBoardC1ER3PinS1_))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = lowerBoard::lowerBoard(Pin&, Pin&) &rArr; Usart3::usartInit() &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pin::pinInit()
@@ -1017,19 +1013,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ea]"></a>mathematics::setAngle(int)</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, mathematics.o(i._ZN11mathematics8setAngleEi))
+<P><STRONG><a name="[ed]"></a>mathematics::setVector(int, int)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mathematics.o(i._ZN11mathematics9setVectorEii))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e9]"></a>mathematics::setSpeed(int)</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, mathematics.o(i._ZN11mathematics8setSpeedEi))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[ec]"></a>mathematics::setVector(int, int)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mathematics.o(i._ZN11mathematics9setVectorEii))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[e3]"></a>mathematics::mathematics()</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, mathematics.o(i._ZN11mathematicsC1Ev))
+<P><STRONG><a name="[e7]"></a>mathematics::mathematics()</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, mathematics.o(i._ZN11mathematicsC1Ev))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1051,7 +1039,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e2]"></a>robotMotion::robotMotion(Motor&, Motor&, Motor&, Motor&)</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, motion_control.o(i._ZN11robotMotionC1ER5MotorS1_S1_S1_))
+<P><STRONG><a name="[e6]"></a>robotMotion::robotMotion(Motor&, Motor&, Motor&, Motor&)</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, motion_control.o(i._ZN11robotMotionC1ER5MotorS1_S1_S1_))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = robotMotion::robotMotion(Motor&, Motor&, Motor&, Motor&)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1069,17 +1057,17 @@ Global Symbols
 
 <P><STRONG><a name="[137]"></a>line_sensors::line_sensors__sub_object(unsigned)</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, line_sensors.o(i._ZN12line_sensorsC1Ej), UNUSED)
 
-<P><STRONG><a name="[db]"></a>time_service::init()</STRONG> (Thumb, 90 bytes, Stack size 12 bytes, time_service.o(i._ZN12time_service4initEv))
+<P><STRONG><a name="[df]"></a>time_service::init()</STRONG> (Thumb, 90 bytes, Stack size 12 bytes, time_service.o(i._ZN12time_service4initEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = time_service::init()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[dd]"></a>time_service::delay_ms(unsigned)</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, time_service.o(i._ZN12time_service8delay_msEj))
+<P><STRONG><a name="[e1]"></a>time_service::delay_ms(unsigned)</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, time_service.o(i._ZN12time_service8delay_msEj))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[dc]"></a>time_service::startTime()</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, time_service.o(i._ZN12time_service9startTimeEv))
+<P><STRONG><a name="[e0]"></a>time_service::startTime()</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, time_service.o(i._ZN12time_service9startTimeEv))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1091,7 +1079,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e1]"></a>Adc::sendMeChannel(unsigned char)</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, adc.o(i._ZN3Adc13sendMeChannelEh))
+<P><STRONG><a name="[e5]"></a>Adc::sendMeChannel(unsigned char)</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, adc.o(i._ZN3Adc13sendMeChannelEh))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1144,7 +1132,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adc::adcInit()
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor::motorInit()
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::Camera(Pin&, Pin&)
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::Camera(Pin&, Pin&)
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gyro::gyro(Pin&, Pin&)
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::lowerBoard(Pin&, Pin&)
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1167,11 +1155,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor::motorInit()
 </UL>
 
-<P><STRONG><a name="[e4]"></a>Pin::readPin()</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, pin_setup.o(i._ZN3Pin7readPinEv))
+<P><STRONG><a name="[e8]"></a>Pin::readPin()</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, pin_setup.o(i._ZN3Pin7readPinEv))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[df]"></a>Pin::Pin(unsigned short, GPIO_TypeDef*, GPIOMode_TypeDef, TIM_TypeDef*, unsigned, unsigned, unsigned short, unsigned char, unsigned, unsigned, GPIOOType_TypeDef, GPIOPuPd_TypeDef)</STRONG> (Thumb, 56 bytes, Stack size 36 bytes, pin_setup.o(i._ZN3PinC1EtP12GPIO_TypeDef16GPIOMode_TypeDefP11TIM_TypeDefjjthjj17GPIOOType_TypeDef16GPIOPuPd_TypeDef))
+<P><STRONG><a name="[e3]"></a>Pin::Pin(unsigned short, GPIO_TypeDef*, GPIOMode_TypeDef, TIM_TypeDef*, unsigned, unsigned, unsigned short, unsigned char, unsigned, unsigned, GPIOOType_TypeDef, GPIOPuPd_TypeDef)</STRONG> (Thumb, 56 bytes, Stack size 36 bytes, pin_setup.o(i._ZN3PinC1EtP12GPIO_TypeDef16GPIOMode_TypeDefP11TIM_TypeDefjjthjj17GPIOOType_TypeDef16GPIOPuPd_TypeDef))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = Pin::Pin(unsigned short, GPIO_TypeDef*, GPIOMode_TypeDef, TIM_TypeDef*, unsigned, unsigned, unsigned short, unsigned char, unsigned, unsigned, GPIOOType_TypeDef, GPIOPuPd_TypeDef)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1179,7 +1167,7 @@ Global Symbols
 
 <P><STRONG><a name="[139]"></a>Pin::Pin__sub_object(unsigned short, GPIO_TypeDef*, GPIOMode_TypeDef, TIM_TypeDef*, unsigned, unsigned, unsigned short, unsigned char, unsigned, unsigned, GPIOOType_TypeDef, GPIOPuPd_TypeDef)</STRONG> (Thumb, 0 bytes, Stack size 36 bytes, pin_setup.o(i._ZN3PinC1EtP12GPIO_TypeDef16GPIOMode_TypeDefP11TIM_TypeDefjjthjj17GPIOOType_TypeDef16GPIOPuPd_TypeDef), UNUSED)
 
-<P><STRONG><a name="[e5]"></a>gyro::setRotationByGyro()</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, gyro.o(i._ZN4gyro17setRotationByGyroEv))
+<P><STRONG><a name="[e9]"></a>gyro::setRotationByGyro()</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, gyro.o(i._ZN4gyro17setRotationByGyroEv))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1225,7 +1213,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotMotion::robotInit()
 </UL>
 
-<P><STRONG><a name="[e0]"></a>Motor::Motor(Pin&, Pin&)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, motor_control.o(i._ZN5MotorC1ER3PinS1_))
+<P><STRONG><a name="[e4]"></a>Motor::Motor(Pin&, Pin&)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, motor_control.o(i._ZN5MotorC1ER3PinS1_))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1249,24 +1237,44 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c4]"></a>Camera::getFormatedAngle(int)</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, camera.o(i._ZN6Camera16getFormatedAngleEi))
+<P><STRONG><a name="[c6]"></a>Camera::getFormatedAngle(int)</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, camera.o(i._ZN6Camera16getFormatedAngleEi))
 <BR><BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getYAngle()
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getBAngle()
 </UL>
 
+<P><STRONG><a name="[c1]"></a>Camera::getAnotherCamDist()</STRONG> (Thumb, 24 bytes, Stack size 4 bytes, camera.o(i._ZN6Camera17getAnotherCamDistEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = Camera::getAnotherCamDist()
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getYDist()
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getBDist()
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[c2]"></a>Camera::getAnotherCamAngle()</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, camera.o(i._ZN6Camera18getAnotherCamAngleEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = Camera::getAnotherCamAngle() &rArr; Camera::getYAngle()
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getYAngle()
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getBAngle()
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
 <P><STRONG><a name="[bc]"></a>Camera::getBDist()</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, camera.o(i._ZN6Camera8getBDistEv))
-<BR><BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getCamDist()
+<BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getAnotherCamDist()
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getCamDist()
 </UL>
 
 <P><STRONG><a name="[bd]"></a>Camera::getYDist()</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, camera.o(i._ZN6Camera8getYDistEv))
-<BR><BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getCamDist()
+<BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getAnotherCamDist()
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getCamDist()
 </UL>
 
-<P><STRONG><a name="[c1]"></a>Camera::readData()</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, camera.o(i._ZN6Camera8readDataEv))
+<P><STRONG><a name="[c3]"></a>Camera::readData()</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, camera.o(i._ZN6Camera8readDataEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Camera::readData()
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::available()
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::read()
+<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::available()
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::read()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1274,24 +1282,26 @@ Global Symbols
 <P><STRONG><a name="[bf]"></a>Camera::getBAngle()</STRONG> (Thumb, 14 bytes, Stack size 4 bytes, camera.o(i._ZN6Camera9getBAngleEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = Camera::getBAngle()
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getFormatedAngle(int)
+<BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getFormatedAngle(int)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getCamAngle()
+<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getAnotherCamAngle()
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getCamAngle()
 </UL>
 
 <P><STRONG><a name="[c0]"></a>Camera::getYAngle()</STRONG> (Thumb, 14 bytes, Stack size 4 bytes, camera.o(i._ZN6Camera9getYAngleEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = Camera::getYAngle()
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getFormatedAngle(int)
+<BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getFormatedAngle(int)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getCamAngle()
+<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getAnotherCamAngle()
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getCamAngle()
 </UL>
 
-<P><STRONG><a name="[c5]"></a>Camera::Camera(Pin&, Pin&)</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, camera.o(i._ZN6CameraC1ER3PinS1_))
+<P><STRONG><a name="[c7]"></a>Camera::Camera(Pin&, Pin&)</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, camera.o(i._ZN6CameraC1ER3PinS1_))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = Camera::Camera(Pin&, Pin&) &rArr; Usart2::uartInit() &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pin::pinInit()
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::uartInit()
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2::uartInit()
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1318,11 +1328,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gyro::read()
 </UL>
 
-<P><STRONG><a name="[c3]"></a>Usart2::read()</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, usart2.o(i._ZN6Usart24readEv))
-<BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::readData()
+<P><STRONG><a name="[c5]"></a>Usart2::read()</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, usart2.o(i._ZN6Usart24readEv))
+<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::readData()
 </UL>
 
-<P><STRONG><a name="[c6]"></a>Usart2::uartInit()</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, usart2.o(i._ZN6Usart28uartInitEv))
+<P><STRONG><a name="[c8]"></a>Usart2::uartInit()</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, usart2.o(i._ZN6Usart28uartInitEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = Usart2::uartInit() &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
@@ -1330,14 +1340,14 @@ Global Symbols
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::Camera(Pin&, Pin&)
+<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::Camera(Pin&, Pin&)
 </UL>
 
-<P><STRONG><a name="[c2]"></a>Usart2::available()</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, usart2.o(i._ZN6Usart29availableEv))
-<BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::readData()
+<P><STRONG><a name="[c4]"></a>Usart2::available()</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, usart2.o(i._ZN6Usart29availableEv))
+<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::readData()
 </UL>
 
-<P><STRONG><a name="[9f]"></a>Usart3::read()</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, usart3.o(i._ZN6Usart34readEv))
+<P><STRONG><a name="[9f]"></a>Usart3::read()</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, usart3.o(i._ZN6Usart34readEv))
 <BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::read()
 </UL>
 
@@ -1356,59 +1366,67 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::lowerBoard(Pin&, Pin&)
 </UL>
 
-<P><STRONG><a name="[da]"></a>__ARM_fpclassify</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fpclassify.o(i.__ARM_fpclassify))
+<P><STRONG><a name="[c9]"></a>std::abs(double)</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, main.o(i._ZSt3absd))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = std::abs(double) &rArr; __hardfp_fabs
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[de]"></a>__ARM_fpclassify</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fpclassify.o(i.__ARM_fpclassify))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_fpclassify
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
-<P><STRONG><a name="[de]"></a>__cxa_guard_acquire</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, cxa_guard_acquire.o(i.__cxa_guard_acquire))
+<P><STRONG><a name="[e2]"></a>__cxa_guard_acquire</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, cxa_guard_acquire.o(i.__cxa_guard_acquire))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c7]"></a>__hardfp_cos</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, cos.o(i.__hardfp_cos))
+<P><STRONG><a name="[cb]"></a>__hardfp_cos</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, cos.o(i.__hardfp_cos))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ed]"></a>__hardfp_fabs</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fabs.o(i.__hardfp_fabs))
+<P><STRONG><a name="[ca]"></a>__hardfp_fabs</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fabs.o(i.__hardfp_fabs))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __hardfp_fabs
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::abs(double)
 </UL>
 
 <P><STRONG><a name="[98]"></a>__hardfp_pow</STRONG> (Thumb, 3072 bytes, Stack size 192 bytes, pow.o(i.__hardfp_pow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_overflow
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_divzero
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
+<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_overflow
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_divzero
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPin(GPIO_TypeDef*, unsigned short, unsigned char, unsigned char, unsigned char)
 </UL>
@@ -1416,75 +1434,75 @@ Global Symbols
 <P><STRONG><a name="[a8]"></a>__hardfp_sin</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, sin.o(i.__hardfp_sin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::calculateSpeed(int, int, int&, int&, int&, int&)
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ca]"></a>__ieee754_rem_pio2</STRONG> (Thumb, 938 bytes, Stack size 120 bytes, rred.o(i.__ieee754_rem_pio2))
+<P><STRONG><a name="[ce]"></a>__ieee754_rem_pio2</STRONG> (Thumb, 938 bytes, Stack size 120 bytes, rred.o(i.__ieee754_rem_pio2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
+<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
 </UL>
 
-<P><STRONG><a name="[cc]"></a>__kernel_cos</STRONG> (Thumb, 322 bytes, Stack size 64 bytes, cos_i.o(i.__kernel_cos))
+<P><STRONG><a name="[d0]"></a>__kernel_cos</STRONG> (Thumb, 322 bytes, Stack size 64 bytes, cos_i.o(i.__kernel_cos))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = __kernel_cos &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
 </UL>
 
-<P><STRONG><a name="[d7]"></a>__kernel_poly</STRONG> (Thumb, 248 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
+<P><STRONG><a name="[db]"></a>__kernel_poly</STRONG> (Thumb, 248 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __kernel_poly &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
-<P><STRONG><a name="[cb]"></a>__kernel_sin</STRONG> (Thumb, 280 bytes, Stack size 72 bytes, sin_i.o(i.__kernel_sin))
+<P><STRONG><a name="[cf]"></a>__kernel_sin</STRONG> (Thumb, 280 bytes, Stack size 72 bytes, sin_i.o(i.__kernel_sin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = __kernel_sin &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
 </UL>
 
-<P><STRONG><a name="[cf]"></a>__mathlib_dbl_divzero</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_divzero))
+<P><STRONG><a name="[d3]"></a>__mathlib_dbl_divzero</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_divzero))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __mathlib_dbl_divzero &rArr; __aeabi_ddiv
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
@@ -1492,34 +1510,34 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
-<P><STRONG><a name="[c9]"></a>__mathlib_dbl_infnan</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_infnan))
+<P><STRONG><a name="[cd]"></a>__mathlib_dbl_infnan</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_infnan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __mathlib_dbl_infnan &rArr; __aeabi_dadd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
 </UL>
 
-<P><STRONG><a name="[ce]"></a>__mathlib_dbl_infnan2</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_infnan2))
+<P><STRONG><a name="[d2]"></a>__mathlib_dbl_infnan2</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_infnan2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __mathlib_dbl_infnan2 &rArr; __aeabi_dadd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
-<P><STRONG><a name="[c8]"></a>__mathlib_dbl_invalid</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_invalid))
+<P><STRONG><a name="[cc]"></a>__mathlib_dbl_invalid</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_invalid))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __mathlib_dbl_invalid &rArr; __aeabi_ddiv
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
 </UL>
 
-<P><STRONG><a name="[d0]"></a>__mathlib_dbl_overflow</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_overflow))
+<P><STRONG><a name="[d4]"></a>__mathlib_dbl_overflow</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_overflow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __mathlib_dbl_overflow &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -1527,12 +1545,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
-<P><STRONG><a name="[d3]"></a>__mathlib_dbl_underflow</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_underflow))
+<P><STRONG><a name="[d7]"></a>__mathlib_dbl_underflow</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_underflow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __mathlib_dbl_underflow &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
@@ -1569,15 +1587,15 @@ Global Symbols
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
 
-<P><STRONG><a name="[d2]"></a>fabs</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, fabs.o(i.fabs))
+<P><STRONG><a name="[d6]"></a>fabs</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, fabs.o(i.fabs))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = fabs
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
-<P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 2854 bytes, Stack size 480 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 912<LI>Call Chain = main &rArr; line_sensors::line_sensors(unsigned) &rArr; initSPI(unsigned, bool, unsigned char, unsigned short, int, int, int, int) &rArr; initPin(unsigned short, unsigned char, unsigned char, unsigned char) &rArr; initPin(GPIO_TypeDef*, unsigned short, unsigned char, unsigned char, unsigned char) &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
+<P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 2772 bytes, Stack size 488 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 920<LI>Call Chain = main &rArr; line_sensors::line_sensors(unsigned) &rArr; initSPI(unsigned, bool, unsigned char, unsigned short, int, int, int, int) &rArr; initPin(unsigned short, unsigned char, unsigned char, unsigned char) &rArr; initPin(GPIO_TypeDef*, unsigned short, unsigned char, unsigned char, unsigned char) &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pin::pinInit()
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
@@ -1585,54 +1603,53 @@ Global Symbols
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adc::Adc(ADC_TypeDef*, unsigned char, unsigned char, unsigned char, unsigned, Pin&)
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adc::startAdc()
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adc::adcInit()
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adc::sendMeChannel(unsigned char)
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adc::sendMeChannel(unsigned char)
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adc::setChannel()
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;time_service::startTime()
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;time_service::delay_ms(unsigned)
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;time_service::init()
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor::Motor(Pin&, Pin&)
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pin::Pin(unsigned short, GPIO_TypeDef*, GPIOMode_TypeDef, TIM_TypeDef*, unsigned, unsigned, unsigned short, unsigned char, unsigned, unsigned, GPIOOType_TypeDef, GPIOPuPd_TypeDef)
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pin::readPin()
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::Camera(Pin&, Pin&)
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::readData()
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;time_service::startTime()
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;time_service::delay_ms(unsigned)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;time_service::init()
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor::Motor(Pin&, Pin&)
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pin::Pin(unsigned short, GPIO_TypeDef*, GPIOMode_TypeDef, TIM_TypeDef*, unsigned, unsigned, unsigned short, unsigned char, unsigned, unsigned, GPIOOType_TypeDef, GPIOPuPd_TypeDef)
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pin::readPin()
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::Camera(Pin&, Pin&)
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::readData()
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getAnotherCamAngle()
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getAnotherCamDist()
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getCamAngle()
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera::getCamDist()
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gyro::gyro(Pin&, Pin&)
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gyro::getAngle()
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gyro::read()
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gyro::setRotationByGyro()
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gyro::setRotationByGyro()
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;line_sensors::line_sensors(unsigned)
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotMotion::robotMotion(Motor&, Motor&, Motor&, Motor&)
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotMotion::robotMotion(Motor&, Motor&, Motor&, Motor&)
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotMotion::robotInit()
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotMotion::move(long long, long long, long long, long long)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::mathematics()
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::setVector(int, int)
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::setSpeed(int)
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::setAngle(int)
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::mathematics()
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::setVector(int, int)
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::getSpeed()
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::getAngle()
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::calculateSpeed(int, int, int&, int&, int&, int&)
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::lowerBoard(Pin&, Pin&)
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::isCanSee()
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::getAngle()
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::getDist()
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::isCanSee()
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::getAngle()
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::getDist()
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lowerBoard::read()
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAngleMultipiller(float)
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::abs(double)
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_guard_acquire
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_guard_acquire
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[d1]"></a>sqrt</STRONG> (Thumb, 110 bytes, Stack size 32 bytes, sqrt.o(i.sqrt))
+<P><STRONG><a name="[d5]"></a>sqrt</STRONG> (Thumb, 110 bytes, Stack size 32 bytes, sqrt.o(i.sqrt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
@@ -1641,11 +1658,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
-<P><STRONG><a name="[cd]"></a>__aeabi_dneg</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, basic.o(x$fpl$basic))
-<BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<P><STRONG><a name="[d1]"></a>__aeabi_dneg</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, basic.o(x$fpl$basic))
+<BR><BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
 </UL>
 
 <P><STRONG><a name="[13d]"></a>_dneg</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, basic.o(x$fpl$basic), UNUSED)
@@ -1658,14 +1675,14 @@ Global Symbols
 
 <P><STRONG><a name="[141]"></a>_fabs</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, basic.o(x$fpl$basic), UNUSED)
 
-<P><STRONG><a name="[d6]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
+<P><STRONG><a name="[da]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
@@ -1678,7 +1695,7 @@ Global Symbols
 <P><STRONG><a name="[f7]"></a>__fpl_dcheck_NaN1</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dcheck1.o(x$fpl$dcheck1))
 <BR><BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
 
 <P><STRONG><a name="[fd]"></a>__fpl_dcmp_Inf</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, dcmpi.o(x$fpl$dcmpinf), UNUSED)
@@ -1690,8 +1707,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::calculateSpeed(int, int, int&, int&, int&, int&)
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_divzero
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_divzero
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
@@ -1705,8 +1722,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::calculateSpeed(int, int, int&, int&, int&, int&)
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 </UL>
 
 <P><STRONG><a name="[fa]"></a>_dfix</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, dfix.o(x$fpl$dfix), UNUSED)
@@ -1726,7 +1743,7 @@ Global Symbols
 <P><STRONG><a name="[a6]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
 <BR><BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::calculateSpeed(int, int, int&, int&, int&, int&)
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
@@ -1734,7 +1751,7 @@ Global Symbols
 
 <P><STRONG><a name="[97]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
 <BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPin(GPIO_TypeDef*, unsigned short, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
 <P><STRONG><a name="[143]"></a>_dfltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu), UNUSED)
@@ -1759,12 +1776,12 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mathematics::calculateSpeed(int, int, int&, int&, int&, int&)
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_overflow
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_overflow
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
@@ -1792,7 +1809,7 @@ Global Symbols
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
 </UL>
 
-<P><STRONG><a name="[d8]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf))
+<P><STRONG><a name="[dc]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cdrcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1803,12 +1820,12 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcmple_InfNaN
 </UL>
 
-<P><STRONG><a name="[d5]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb))
+<P><STRONG><a name="[d9]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_drsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
@@ -1822,15 +1839,15 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
+<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 </UL>
 
-<P><STRONG><a name="[d4]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub))
+<P><STRONG><a name="[d8]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 </UL>
 
@@ -1853,7 +1870,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
 </UL>
 
-<P><STRONG><a name="[d9]"></a>__ARM_scalbn</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, scalbn.o(x$fpl$scalbn))
+<P><STRONG><a name="[dd]"></a>__ARM_scalbn</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, scalbn.o(x$fpl$scalbn))
 <BR><BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow

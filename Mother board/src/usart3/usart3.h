@@ -12,8 +12,8 @@ namespace Usart3
         uint16_t available();
 //        Pin m_txPin;
 //        Pin m_rxPin;
-        extern volatile uint8_t tx[512];
-        extern volatile uint8_t rx[512];
+        extern volatile uint8_t tx[16];
+        extern volatile uint8_t rx[16];
         extern volatile uint16_t m_rxCnt;
         extern volatile uint16_t m_txCnt; 
         extern volatile bool fl;

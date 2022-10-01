@@ -9,6 +9,7 @@ lowerBoard::lowerBoard(Pin &tx, Pin &rx):m_tx(tx),m_rx(rx)
 	m_canSee = false;
 	m_angle = 0;
 	m_dist = 0;
+	count = 0;
 }
 
 int lowerBoard::crc8(int* data, int len)
@@ -35,15 +36,18 @@ void lowerBoard::read()
 			
 			if(crc8(dt, 2) == dt[2])
 			{
-				if(dt[0] == 255 && dt[1] == 0){
+				if(dt[1] == 0){
+					count++;
 					m_canSee = false;
-					m_angle = 0;
 					m_dist = 0;
 				}
 				else {
-					m_canSee = true;
-					m_angle = dt[0] * 2;
-					m_dist = dt[1];
+					count = 0;
+					if (dt[0] <= 180 && dt[0] > 0) {
+						m_angle = dt[0] * 2;
+						m_dist = dt[1];
+						m_canSee = true;
+					}						
 					/*if(m_angle > 180)
 						m_angle = m_angle - 360;
 					if(m_angle < -180)

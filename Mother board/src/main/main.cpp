@@ -34,7 +34,15 @@
 
 
 float getAngleMultipiller(float angle){
-	return 1;
+	if (angle < 15) 
+		return 1.3;
+	if (angle < 45) 
+		return 1.9;
+	if (angle < 90) 
+		return 1.7;
+	if (angle < 135) 
+		return 1.5;
+	return 1.3;
 }
 
 int main()
@@ -292,6 +300,9 @@ int main()
 	int k = 0;
 	bool viezd = false, viezdAct = false;
 	unsigned long timer = 0;
+	volatile bool f = false;
+//	int mf[1024];
+//	int c = 0;
 	
 	while(1)
 	{
@@ -300,63 +311,75 @@ int main()
 			gyro.read();
 			gyro.setRotationByGyro();
 		}
-		
+		volatile int a = tsop.getAngle();
 		if(switchPin.readPin())
 		{
 			tsop.read();
 			cam.readData();
 			gyro.read();
 			if(CODE == ATTACKER) {
-				if(tsop.isCanSee()) {
+				/*if(tsop.isCanSee()) {
 						if(tsop.getDist() < 70)
-							math.calculateSpeed(tsop.getAngle() * 1.2, 3500, sp1, sp2, sp3, sp4);
+							math.calculateSpeed(tsop.getAngle() * 1.2, 2500, sp1, sp2, sp3, sp4);
 						else {
 							if(abs(float(tsop.getAngle())) < 60)
 							{
 								if(abs(float(tsop.getAngle())) < 20) {
-									math.setSpeed(3500);
+									math.setSpeed(1500);
 									if(tsop.getDist() > 70)
+									{
 										math.setAngle(cam.getCamAngle());
+										math.setSpeed(3500);
+									}
 									else
 										math.setAngle(tsop.getAngle());
 								} else {
 										math.setVector(tsop.getAngle() * getAngleMultipiller(tsop.getAngle()), 1500);
 								}
 							} else {
-								math.setVector(tsop.getAngle() * getAngleMultipiller(tsop.getAngle()), 3500);
+								math.setVector(tsop.getAngle() * getAngleMultipiller(tsop.getAngle()), 1500);
 							}
 						}
 				} else {
 					math.setVector(0, 0);
-				}
-			//cam.getCamAngle();//ADC1->DR;//ballSensor.readPin();
-					
-				/*if(abs(cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3)) < 40)	
-				{
-					math.calculateSpeed(0, 2000, sp1, sp2, sp3, sp4);
 				}*/
 				
-				if(abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 35)	
+//				math.setAngle(cam.getCamAngle());
+//				volatile int a = cam.getYAngle(), b = cam.getBAngle();
+//				math.setSpeed(1000);
+//				k = 0;	
+				if(tsop.isCanSee()) {
+					if (tsop.getDist() > 50) {
+							math.setVector(tsop.getAngle() * 1.5, 3500);
+					} else {
+							math.setVector(tsop.getAngle(), 3500);
+					}
+				} else {
+					math.setVector(tsop.getAngle(), 0);
+				}
+								if(abs(cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3)) < 40)	
+				{
+					math.calculateSpeed(0, 2000, sp1, sp2, sp3, sp4);
+				}
+				
+				if(abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 25)	
 				{
 					math.setVector(180, 2000);
 				}
-				
 				if(cam.getCamDist() * sin(cam.getCamAngle() / 57.3) > 50)	
 				{
 					math.setVector(90, 2000);
 				}
-				
 				if(cam.getCamDist() * sin(cam.getCamAngle() / 57.3) < -50)	
 				{
 					math.setVector(-90, 2000);
 				}
-				
-				k = gyro.getAngle();				
+				k = gyro.getAngle();
 				math.calculateSpeed(math.getAngle(), math.getSpeed(), sp1, sp2, sp3, sp4);
 				robot.move(sp1 + k, sp2 + k, sp3 + k, sp4 + k);
 			} 
 			else if(CODE == GOALKEEPER) {
-				if(tsop.isCanSee()) {
+				/*if(tsop.isCanSee()) {
 					if(tsop.getAngle() <= 15 && tsop.getDist() >= 50 && !viezd && !viezdAct)
 					{
 						timer = millis();
@@ -395,12 +418,12 @@ int main()
 						viezdAct = false;
 					}				
 				} else {
-					math.calculateSpeed(cam.getCamAngle() > 0 ? 90 : -90, 1000, sp1, sp2, sp3, sp4);
+					math.calculateSpeed(cam.getCamAngle() > 0 ? 90 : -90, 1500, sp1, sp2, sp3, sp4);
 					if(abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) < 5)
 					{
 						math.calculateSpeed(0, 0, sp1, sp2, sp3, sp4);
 					}
-				}
+				}*/
 
 				if(abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 30)	
 				{
@@ -414,13 +437,10 @@ int main()
 				}
 				//}
 				
-				if(abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) > 23)	
+				if(abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) > 20)	
 				{
 					math.calculateSpeed(cam.getCamAngle() > 0 ? 90 : -90, 2500, sp1, sp2, sp3, sp4);
 				}
-				
-				
-				
 				k = gyro.getAngle();
 				robot.move(sp1 + k, sp2 + k, sp3 + k, sp4 + k);
 			}
@@ -439,7 +459,6 @@ int main()
 						math.calculateSpeed(getAngleMultipiller(tsop.getAngle()), 1000, sp1, sp2, sp3, sp4);
 					}
 				}
-				
 				k = gyro.getAngle();
 				robot.move(sp1 + k, sp2 + k, sp3 + k, sp4 + k);
 			}

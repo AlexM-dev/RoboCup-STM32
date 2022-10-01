@@ -9,7 +9,7 @@ extern "C"
         if(data & USART_SR_RXNE){
             Usart2::rx[Usart2::m_rxCnt] = USART2->DR; 
             Usart2::m_rxCnt++;
-            if (Usart2::m_rxCnt == 32)
+            if (Usart2::m_rxCnt == 128)
             {
                 Usart2::m_rxCnt = 0;
             }
@@ -22,7 +22,7 @@ extern "C"
                 (USART2->DR) = Usart2::tx[Usart2::m_sendCnt];
                 //Usart2::m_txCnt;
                 Usart2::m_sendCnt++;
-                if(Usart2::m_sendCnt == 32)Usart2::m_sendCnt = 0;
+                if(Usart2::m_sendCnt == 128)Usart2::m_sendCnt = 0;
             }
             else{
                 Usart2::fl = 1;
@@ -44,8 +44,8 @@ namespace Usart2{
 //{
 //               
 //}
-    volatile uint8_t tx[32];
-    volatile uint8_t rx[32];
+    volatile uint8_t tx[128];
+    volatile uint8_t rx[128];
     volatile uint16_t m_rxCnt;
     volatile uint16_t m_txCnt; 
     volatile bool fl;
@@ -84,7 +84,7 @@ namespace Usart2{
       ENTER_CRITICAL_SECTION();  
       a = rx[m_readCnt];
       m_readCnt++;
-      if (m_readCnt == 32)
+      if (m_readCnt == 128)
       {
           m_readCnt = 0;
       }
@@ -110,7 +110,7 @@ namespace Usart2{
        if (fl == 0){ 
        tx[m_txCnt] = byte;
        m_txCnt++;
-       if (m_txCnt == 32)m_txCnt = 0;
+       if (m_txCnt == 128)m_txCnt = 0;
        }
        else{
            fl = 0;

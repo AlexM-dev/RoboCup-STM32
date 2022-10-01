@@ -9,6 +9,7 @@
 ".\objects\adc.o"
 ".\objects\dma.o"
 ".\objects\uart.o"
+".\objects\time_service.o"
 ".\objects\misc.o"
 ".\objects\stm32f10x_gpio.o"
 ".\objects\stm32f10x_rcc.o"
