@@ -318,6 +318,7 @@ int main()
 			cam.readData();
 			gyro.read();
 			if(CODE == ATTACKER) {
+				int speed = 3500; 
 				/*if(tsop.isCanSee()) {
 						if(tsop.getDist() < 70)
 							math.calculateSpeed(tsop.getAngle() * 1.2, 2500, sp1, sp2, sp3, sp4);
@@ -344,43 +345,65 @@ int main()
 					math.setVector(0, 0);
 				}*/
 				
-//				math.setAngle(cam.getCamAngle());
-//				volatile int a = cam.getYAngle(), b = cam.getBAngle();
-//				math.setSpeed(1000);
-//				k = 0;	
+				//Main logic
 				if(tsop.isCanSee()) {
 					if (tsop.getDist() > 50) {
-							math.setVector(tsop.getAngle() * 1.5, 3500);
+							if (abs(float(tsop.getAngle())) < 45) {
+								if (abs(float(tsop.getAngle())) < 20) {
+										math.setVector(cam.getCamAngle(), speed);
+								} else {
+										math.setVector(tsop.getAngle() * 1.5, 2000);
+								}
+							} else {
+								math.setVector(tsop.getAngle() * 1.5, speed);
+							}
 					} else {
-							math.setVector(tsop.getAngle(), 3500);
+							math.setVector(tsop.getAngle(), speed);
 					}
 				} else {
 					math.setVector(tsop.getAngle(), 0);
 				}
-								if(abs(cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3)) < 40)	
-				{
-					math.calculateSpeed(0, 2000, sp1, sp2, sp3, sp4);
-				}
+				//
 				
-				if(abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 25)	
+				//Line detecting
+				if(abs(cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3)) < 40)	
 				{
-					math.setVector(180, 2000);
+					math.calculateSpeed(0, speed, sp1, sp2, sp3, sp4);
+				}
+				if(abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 30)	
+				{
+					math.setVector(180, speed);
 				}
 				if(cam.getCamDist() * sin(cam.getCamAngle() / 57.3) > 50)	
 				{
-					math.setVector(90, 2000);
+					math.setVector(90, speed);
 				}
 				if(cam.getCamDist() * sin(cam.getCamAngle() / 57.3) < -50)	
 				{
-					math.setVector(-90, 2000);
+					math.setVector(-90, speed);
 				}
+				//
+				
+				//Move
 				k = gyro.getAngle();
 				math.calculateSpeed(math.getAngle(), math.getSpeed(), sp1, sp2, sp3, sp4);
 				robot.move(sp1 + k, sp2 + k, sp3 + k, sp4 + k);
+				//
 			} 
 			else if(CODE == GOALKEEPER) {
-				/*if(tsop.isCanSee()) {
-					if(tsop.getAngle() <= 15 && tsop.getDist() >= 50 && !viezd && !viezdAct)
+				int speedGK = 2000; 
+				if(tsop.isCanSee()) {
+					if (abs(float(tsop.getAngle())) > 15) {
+						if (tsop.getAngle() > 0) {
+							math.setVector(cam.getAnotherCamAngle() - 90, speedGK);
+						} else {
+							math.setVector(cam.getAnotherCamAngle() + 90, speedGK);
+						}
+					} else {
+						math.calculateSpeed(0, 0, sp1, sp2, sp3, sp4);
+					}
+					
+					/*if(tsop.getAngle() <= 15 && tsop.getDist() >= 50 && !viezd && !viezdAct)
 					{
 						timer = millis();
 						viezd = true;
@@ -416,16 +439,22 @@ int main()
 					}
 					if(millis() - timer > 1000 && viezdAct) {
 						viezdAct = false;
-					}				
+					}*/			
+
+
 				} else {
-					math.calculateSpeed(cam.getCamAngle() > 0 ? 90 : -90, 1500, sp1, sp2, sp3, sp4);
+					/*math.calculateSpeed(cam.getCamAngle() > 0 ? 90 : -90, 1500, sp1, sp2, sp3, sp4);
 					if(abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) < 5)
 					{
 						math.calculateSpeed(0, 0, sp1, sp2, sp3, sp4);
-					}
-				}*/
+					}*/
+					math.calculateSpeed(0, 0, sp1, sp2, sp3, sp4);
+				}
+				
+				math.addVector(30 - cam.getAnotherCamDist() > 0 ? 0 : 180, abs(float(30 - cam.getAnotherCamDist()) * 50));
 
-				if(abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 30)	
+
+				/*if(abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 30)	
 				{
 					math.calculateSpeed(0, 2500, sp1, sp2, sp3, sp4);
 				}
@@ -440,7 +469,8 @@ int main()
 				if(abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) > 20)	
 				{
 					math.calculateSpeed(cam.getCamAngle() > 0 ? 90 : -90, 2500, sp1, sp2, sp3, sp4);
-				}
+				}*/
+				
 				k = gyro.getAngle();
 				robot.move(sp1 + k, sp2 + k, sp3 + k, sp4 + k);
 			}
@@ -465,8 +495,6 @@ int main()
 			else if(CODE == SNIPER) {
 				
 			}
-			math.calculateSpeed(math.getAngle(), math.getSpeed(), sp1, sp2, sp3, sp4);
-			robot.move(sp1 + k, sp2 + k, sp3 + k, sp4 + k);
 		}
 		else
 		{

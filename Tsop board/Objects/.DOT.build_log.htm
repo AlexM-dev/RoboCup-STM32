@@ -3,34 +3,31 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.36.0.0
-Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: A A, A, LIC=BUURY-IU36K-NNHAF-6Q0V1-W7ZGV-4TR1J
+IDE-Version: µVision V5.33.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Alexandr Mescheryakow, PML239, LIC=14HV2-97K8J-EV11R-K5F9H-DKAD4-2ABSF
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain:       MDK-ARM Plus  Version: 5.33.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 7 (build 960)
 Assembler:       Armasm.exe V5.06 update 7 (build 960)
 Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
 Library Manager: ArmAr.exe V5.06 update 7 (build 960)
 Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
-CPU DLL:         SARMCM3.DLL V5.36.0.0
+CPU DLL:         SARMCM3.DLL V5.33.0.0
 Dialog DLL:      DCM.DLL V1.17.3.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
-Dialog DLL:      TCM.DLL V1.53.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
+Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
-C:\Users\Îáëî÷êî\Documents\RoboCup2023\Tsop board\Lower_board.uvprojx
-Project File Date:  09/26/2022
+\\Mac\Home\Desktop\study\robocup\RoboCup-STM32\Tsop board\Lower_board.uvprojx
+Project File Date:  10/02/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-compiling stm32f10x_adc.c...
-compiling stm32f10x_dma.c...
 compiling pin_setup.cpp...
-compiling stm32f10x_usart.c...
 compiling multiplexer.cpp...
 compiling main.cpp...
 src\main\main.cpp(162): warning:  #177-D: variable "nonF1"  was declared but never referenced
@@ -38,14 +35,17 @@ src\main\main.cpp(162): warning:  #177-D: variable "nonF1"  was declared but nev
 src\main\main.cpp(162): warning:  #177-D: variable "nonF2"  was declared but never referenced
   	int nonF1[SORT_SIZE], nonF2[SORT_SIZE];
 src\main\main.cpp: 2 warnings, 0 errors
+compiling stm32f10x_dma.c...
+compiling stm32f10x_adc.c...
 compiling stm32f10x_tim.c...
-compiling misc.c...
+compiling stm32f10x_usart.c...
 compiling adc.cpp...
 compiling dma.cpp...
-compiling time_service.cpp...
 compiling uart.cpp...
-compiling stm32f10x_gpio.c...
+compiling misc.c...
+compiling time_service.cpp...
 assembling startup_stm32f10x_md.s...
+compiling stm32f10x_gpio.c...
 compiling stm32f10x_rcc.c...
 compiling system_stm32f10x.c...
 linking...
@@ -55,10 +55,10 @@ Program Size: Code=10668 RO-data=844 RW-data=80 ZI-data=1880
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
-                ARM.CMSIS.5.8.0
-                CMSIS (Common Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.5.0
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
 
 Package Vendor: Keil
                 http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
@@ -72,26 +72,26 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   .\RTE\Device\STM32F103C8
   .\RTE\_Target_1
-  C:\Users\Îáëî÷êî\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
-  C:\Users\Îáëî÷êî\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
-  C:\Users\Îáëî÷êî\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\StdPeriph_Driver\inc
+  C:\Users\alexm\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\alexm\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
+  C:\Users\alexm\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\StdPeriph_Driver\inc
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.5.0
+   * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\system_stm32f10x.c
-      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
 
    * Component: Keil::Device:StdPeriph Drivers:Framework:3.6.0
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
-      Include file:  Device\StdPeriph_Driver\inc\misc.h
       Source file:   Device\StdPeriph_Driver\src\misc.c
-      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
       Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
+      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
+      Include file:  Device\StdPeriph_Driver\inc\misc.h
 
    * Component: Keil::Device:StdPeriph Drivers:GPIO:3.6.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
