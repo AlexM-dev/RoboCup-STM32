@@ -30,7 +30,7 @@
 #define ATTACKER 1
 #define SNIPER 3
 #define PENALTY 4
-#define CODE ATTACKER
+#define CODE GOALKEEPER
 
 
 float getAngleMultipiller(float angle){
@@ -311,7 +311,6 @@ int main()
 			gyro.read();
 			gyro.setRotationByGyro();
 		}
-		volatile int a = tsop.getAngle();
 		if(switchPin.readPin())
 		{
 			tsop.read();
@@ -391,7 +390,7 @@ int main()
 				//
 			} 
 			else if(CODE == GOALKEEPER) {
-				int speedGK = 2000; 
+				/*int speedGK = 2000; 
 				if(tsop.isCanSee()) {
 					if (abs(float(tsop.getAngle())) > 15) {
 						if (tsop.getAngle() > 0) {
@@ -439,19 +438,19 @@ int main()
 					}
 					if(millis() - timer > 1000 && viezdAct) {
 						viezdAct = false;
-					}*/			
+					}			
 
 
 				} else {
-					/*math.calculateSpeed(cam.getCamAngle() > 0 ? 90 : -90, 1500, sp1, sp2, sp3, sp4);
+					math.calculateSpeed(cam.getCamAngle() > 0 ? 90 : -90, 1500, sp1, sp2, sp3, sp4);
 					if(abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) < 5)
 					{
 						math.calculateSpeed(0, 0, sp1, sp2, sp3, sp4);
-					}*/
+					}
 					math.calculateSpeed(0, 0, sp1, sp2, sp3, sp4);
-				}
+				}*/
 				
-				math.addVector(30 - cam.getAnotherCamDist() > 0 ? 0 : 180, abs(float(30 - cam.getAnotherCamDist()) * 50));
+				
 
 
 				/*if(abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 30)	
@@ -470,30 +469,31 @@ int main()
 				{
 					math.calculateSpeed(cam.getCamAngle() > 0 ? 90 : -90, 2500, sp1, sp2, sp3, sp4);
 				}*/
-				
-				k = gyro.getAngle();
-				robot.move(sp1 + k, sp2 + k, sp3 + k, sp4 + k);
-			}
-			else if(CODE == PENALTY) {
-				tsop.read();
-				cam.readData();
-				gyro.read();
-				
-				if(abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) <  165)
-				{
-					math.calculateSpeed(-180, 1000, sp1, sp2, sp3, sp4);
-				} else {
-					if(abs(float(tsop.getAngle())) < 15) {
-						math.calculateSpeed(cam.getCamAngle(), 3500, sp1, sp2, sp3, sp4);
+				if(tsop.isCanSee()) {
+					if (abs(float(tsop.getAngle())) > 15) {
+						if (tsop.getAngle() > 0) {
+							math.setVector(cam.getCamAngle() - 90, 2000);
+						} else {
+							math.setVector(cam.getCamAngle() + 90, 2000);
+						}
 					} else {
-						math.calculateSpeed(getAngleMultipiller(tsop.getAngle()), 1000, sp1, sp2, sp3, sp4);
+						math.setVector(0, 0);
 					}
+				} else {
+						math.setVector(0, 0);
 				}
+				
+				if (cam.getCamDist() > 40) {
+					math.setVector(180, 2000);
+				}
+				if (cam.getCamDist() < 30) {
+					math.setVector(0, 2000);
+				}
+				volatile int a = cam.getCamDist();
+				//math.addVector(35 - cam.getCamAngle() > 0 ? 0 : 180, abs(float(35 - cam.getCamAngle()) * 50));
+				math.calculateSpeed(math.getAngle(), math.getSpeed(), sp1, sp2, sp3, sp4);
 				k = gyro.getAngle();
 				robot.move(sp1 + k, sp2 + k, sp3 + k, sp4 + k);
-			}
-			else if(CODE == SNIPER) {
-				
 			}
 		}
 		else
