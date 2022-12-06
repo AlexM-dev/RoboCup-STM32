@@ -21,36 +21,16 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
 Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-C:\Users\Облочко\Documents\RoboCup2023\Tsop board\Lower_board.uvprojx
+C:\Users\Облочко\Documents\RoboCup-STM32\Tsop board\Lower_board.uvprojx
 Project File Date:  09/26/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'Target 1'
-compiling stm32f10x_adc.c...
-compiling stm32f10x_dma.c...
-compiling pin_setup.cpp...
-compiling stm32f10x_usart.c...
-compiling multiplexer.cpp...
+Build target 'Target 1'
 compiling main.cpp...
-src\main\main.cpp(162): warning:  #177-D: variable "nonF1"  was declared but never referenced
-  	int nonF1[SORT_SIZE], nonF2[SORT_SIZE];
-src\main\main.cpp(162): warning:  #177-D: variable "nonF2"  was declared but never referenced
-  	int nonF1[SORT_SIZE], nonF2[SORT_SIZE];
-src\main\main.cpp: 2 warnings, 0 errors
-compiling stm32f10x_tim.c...
-compiling misc.c...
-compiling adc.cpp...
-compiling dma.cpp...
-compiling time_service.cpp...
-compiling uart.cpp...
-compiling stm32f10x_gpio.c...
-assembling startup_stm32f10x_md.s...
-compiling stm32f10x_rcc.c...
-compiling system_stm32f10x.c...
 linking...
-Program Size: Code=10668 RO-data=844 RW-data=80 ZI-data=1880  
-".\Objects\.DOT.X_Lower_board" - 0 Error(s), 2 Warning(s).
+Program Size: Code=10812 RO-data=844 RW-data=80 ZI-data=1880  
+".\Objects\.DOT.X_Lower_board" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -81,26 +61,26 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\system_stm32f10x.c
-      Include file:  RTE_Driver\Config\RTE_Device.h
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Source file:   Device\Source\system_stm32f10x.c
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Include file:  RTE_Driver\Config\RTE_Device.h
 
    * Component: Keil::Device:StdPeriph Drivers:Framework:3.6.0
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
-      Include file:  Device\StdPeriph_Driver\inc\misc.h
-      Source file:   Device\StdPeriph_Driver\src\misc.c
       Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
+      Source file:   Device\StdPeriph_Driver\src\misc.c
+      Include file:  Device\StdPeriph_Driver\inc\misc.h
       Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
 
    * Component: Keil::Device:StdPeriph Drivers:GPIO:3.6.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
 
    * Component: Keil::Device:StdPeriph Drivers:RCC:3.6.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
-Build Time Elapsed:  00:00:02
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
