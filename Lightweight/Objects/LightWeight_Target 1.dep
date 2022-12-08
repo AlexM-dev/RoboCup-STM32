@@ -515,7 +515,7 @@ I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
 F (.\src\softI2C\softI2C.h)(0x5D3EAE48)()
-F (.\src\main\main.cpp)(0x638E1B71)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\src\main\main.cpp)(0x6392358A)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
 I (.\src\global_macros\global_macros.h)(0x5CCB2BB4)
 I (.\src\global_macros\stm32f4xx_global_macros.h)(0x5CCB2BB4)
@@ -555,7 +555,7 @@ I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
 I (.\src\motor_control\MOTOR_control.h)(0x6283E0E0)
 I (.\src\motion_control\motion_control.h)(0x5E530EC2)
-I (.\src\mathematics\mathematics.h)(0x6283E818)
+I (.\src\mathematics\mathematics.h)(0x639233C6)
 I (.\src\IRlocator\IRlocator.h)(0x618FA002)
 I (.\src\softI2C\softI2C.h)(0x5D3EAE48)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x602569C8)
@@ -664,8 +664,8 @@ I (.\src\spl4\inc\stm32f4xx_dac.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
-F (.\src\mathematics\mathematics.cpp)(0x6346E610)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\mathematics.o --omf_browse .\objects\mathematics.crf --depend .\objects\mathematics.d)
-I (src\mathematics\mathematics.h)(0x6283E818)
+F (.\src\mathematics\mathematics.cpp)(0x63923320)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\mathematics.o --omf_browse .\objects\mathematics.crf --depend .\objects\mathematics.d)
+I (src\mathematics\mathematics.h)(0x639233C6)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
 I (.\src\global_macros\global_macros.h)(0x5CCB2BB4)
 I (.\src\global_macros\stm32f4xx_global_macros.h)(0x5CCB2BB4)
@@ -707,7 +707,7 @@ I (.\src\pins\pins_setup.h)(0x5E19EBE8)
 I (.\src\softI2C\softI2C.h)(0x5D3EAE48)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x602569C8)
 I (.\src\time_service\time_service.h)(0x5D3186EE)
-F (.\src\mathematics\mathematics.h)(0x6283E818)()
+F (.\src\mathematics\mathematics.h)(0x639233C6)()
 F (.\src\motion_control\motion_control.cpp)(0x6346E617)(--cpp -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\src\adc -I .\src\cmsis -I .\src\dma -I .\src\external -I .\src\global_macros -I .\src\main -I .\src\motion_control -I .\src\motor_control -I .\src\pins -I .\src\softI2C -I .\src\time_service -I .\src\uart -I .\src\spl4\inc -I .\src\spl4\src -I .\src\spl4 -I .\src\support_pacage -I .\src\support_pacage\inc -I .\src\support_pacage\gcc -I .\src\support_pacage\arm -I .\src\mathematics -I .\src\ballDetection -I .\src\buttonsModule -I .\src\usart -I .\src\strategy -I .\src\usart6 -I .\src\usart2 -I .\src\usart1 -I .\src\gyroscope -I .\src\camera -I .\src\lower_board -I .\src\IRlocator -I .\src\usart3 -I .\src\bluetooth_send -I .\src\bluetooth_robot -I .\src\oled -I .\src\gyroscope -I .\src\SPI -I .\src\uart4 -I .\src\gyroscope -I .\src\lineSensors -I .\src\gyroUART-IC:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F407xx -DSTM32F40_41xxx -DUSE_FULL_ASSERT -DUSE_STDPERIPH_DRIVER -DHSE_VALUE="12000000"-o .\objects\motion_control.o --omf_browse .\objects\motion_control.crf --depend .\objects\motion_control.d)
 I (src\motion_control\motion_control.h)(0x5E530EC2)
 I (.\src\main\project_config.h)(0x5DDEBC1C)
@@ -748,7 +748,7 @@ I (.\src\spl4\inc\stm32f4xx_dcmi.h)(0x5CCB2BB4)
 I (.\src\spl4\inc\stm32f4xx_fsmc.h)(0x5CCB2BB4)
 I (.\src\motor_control\motor_control.h)(0x6283E0E0)
 I (.\src\pins\pins_setup.h)(0x5E19EBE8)
-I (.\src\mathematics\mathematics.h)(0x6283E818)
+I (.\src\mathematics\mathematics.h)(0x639233C6)
 I (.\src\IRlocator\IRlocator.h)(0x618FA002)
 I (.\src\softI2C\softI2C.h)(0x5D3EAE48)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x602569C8)

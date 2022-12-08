@@ -3,6 +3,7 @@
 #include <IRlocator.h>
 #include <math.h>
 #include <time_service.h>
+#define TR_SIZE 283
 class mathematics//class for mathematics 
 {
     public:
@@ -14,13 +15,24 @@ class mathematics//class for mathematics
 				void addVector(int32_t angleT, int32_t speed);
 				int32_t getAngle( void );
 				int32_t getSpeed( void );
+				//void setStartDotForTr1(double x, double y)
+				void getVecFromTr(double x, double y, unsigned long t, int32_t &sp, int32_t &ang);
+				void setTr( void );
+				void setStartDot(double x, double y);
     private:
+				void updateStartDot(double x, double y);
         int32_t speed[4];
 				int32_t mAngle[4];
 				uint64_t time_;
 				int32_t curspeed;
 				int32_t m_speed;
 				int32_t m_angle;
+				float tr[TR_SIZE][2];
+				double startX, startY;
+				double offsetX, offsetY;
+				int side, curI;
+				double S, V;
+				double step;
 };
 
 
