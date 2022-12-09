@@ -18,9 +18,9 @@ mathematics::mathematics()
 		m_speed = 0;
 		m_angle = 0;
 		V = 0.1; // cm/msec
-		S = 0;
-		step = 0.1;
 		curI = 0;
+		a = 90;
+		r = 20; 
 }
 
 void mathematics::setAngle(int32_t angleT) {
@@ -108,8 +108,8 @@ void mathematics::calculateSpeed(int32_t angle, int32_t maxSpeed, int32_t &sp1, 
 
 void mathematics::getVecFromTr(double x, double y, unsigned long t, int32_t &sp, int32_t &ang) {
 	double newX, newY;
-	S = S + V * t;
-	if (startY > tr[0][1] + offsetY) { //Robot on the cercle
+	double S = V * t;
+	/*if (startY > tr[0][1] + offsetY) { //Robot on the cercle
 		int i = 0;
 		for (;i + curI < TR_SIZE; ++i) {
 			if (sqrt(pow(startX - (tr[i+curI][0] * side + offsetX), 2) + pow(startY - (tr[i+curI][1] + offsetY), 2)) > S) {
@@ -125,7 +125,26 @@ void mathematics::getVecFromTr(double x, double y, unsigned long t, int32_t &sp,
 	} else {	//Robot on the line
 		newX = startX;
 		newY = startY + S;
+	}*/
+	
+	if (startY < tr[0][1] + offsetY) { //Robot on the line
+		newY = startY + S;
+		newX = startX;
+		//a = 90;
+	} else { //Robot on the cercle
+		a -= (S * 180) / (pi * r);
+		if (a <= 0) {
+			newX = r * side + offsetX;
+			newY = f(r) + offsetY;
+		} else {
+			newX = r * cos(a / 57.3) * side + offsetX;
+			newY = f(r * cos(a / 57.3)) + offsetY;
+		}
 	}
+	
+	//FOR TEST//
+	newX = 0;
+	newY = 0;
 
 	ang = atan2(newY - y, newX - x);
 	sp = sqrt(pow(newY - y, 2) + pow(newX - x, 2));
@@ -133,7 +152,8 @@ void mathematics::getVecFromTr(double x, double y, unsigned long t, int32_t &sp,
 }
 
 void mathematics::setStartDot(double x, double y) {
-	if (x < 0) {
+	a = 90;
+	/*if (x < 0) {
 		side = 1;
 		offsetX = -20 - 50; 
 		offsetY = 80;
@@ -165,7 +185,25 @@ void mathematics::setStartDot(double x, double y) {
 		r--; 
 		startX = tr[r][0] * side + offsetX;
 		startY = tr[r][1] + offsetY;
+	}*/
+	if (x < 0) {
+		side = 1;
+		offsetX = -70; 
+		offsetY = 80;
+	} else {
+		side = -1;
+		offsetX = 70;
+		offsetY = 80;
 	}
+	
+	if (y <  offsetY - r) {
+		startY = y;
+		startX = offsetX + r * side;
+	} else {
+		startY = y;
+		startX = g(y) * side + offsetX;
+	}
+	
 }
 
 void mathematics::updateStartDot(double x, double y) {
@@ -173,7 +211,15 @@ void mathematics::updateStartDot(double x, double y) {
 	startY = y;
 }
 
-void mathematics::setTr (void) {
+double mathematics::f(double x) { //Cercle
+	return -(r - sqrt(-(x * x - 2 * x * r)));
+}
+
+double mathematics::g(double x) { // f-1(x)
+	return -(-r + sqrt(-2 * x * r - x * x));
+}
+
+/*void mathematics::setTr (void) {
 	float temp[TR_SIZE][2] = {
 													{ 0.0 , -20 } ,
 													{ 0.0 , -19.9 } ,
@@ -463,4 +509,4 @@ void mathematics::setTr (void) {
 		tr[i][0] = temp[i][0];
 		tr[i][1] = temp[i][1];
 	}
-}
+}*/

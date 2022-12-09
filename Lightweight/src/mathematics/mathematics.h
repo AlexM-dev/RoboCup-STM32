@@ -4,6 +4,7 @@
 #include <math.h>
 #include <time_service.h>
 #define TR_SIZE 283
+#define pi 3.14159
 class mathematics//class for mathematics 
 {
     public:
@@ -31,8 +32,10 @@ class mathematics//class for mathematics
 				double startX, startY;
 				double offsetX, offsetY;
 				int side, curI;
-				double S, V;
-				double step;
+				double V;
+				double r, a;
+				double f(double x);
+				double g(double y);
 };
 
 
