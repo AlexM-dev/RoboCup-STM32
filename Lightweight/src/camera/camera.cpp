@@ -88,7 +88,7 @@ int Camera::getCamDist(){
 }
 
 int Camera::getCamAngle(){
-  return (goal == 0? getBAngle() : getYAngle()) + gyroAng;
+  return getFormatedAngle((goal == 0? getBAngle() : getYAngle()) + gyroAng);
 }
 
 int Camera::getAnotherCamDist(){
@@ -96,7 +96,7 @@ int Camera::getAnotherCamDist(){
 }
 
 int Camera::getAnotherCamAngle(){
-  return (goal == 0? getYAngle() : getBAngle()) + gyroAng;
+  return getFormatedAngle((goal == 0? getYAngle() : getBAngle()) + gyroAng);
 }
 
 bool Camera::canSee(){
@@ -104,18 +104,6 @@ bool Camera::canSee(){
 }
 
 void Camera::setGyroAng(int a){
-  gyroAng = a;
+  gyroAng = getFormatedAngle(a);
 }
-
-int Camera::getX(){
-	if(getYDist() < getBDist())
-		return getYDist() * sin(getYAngle() / 57.3);
-	else
-		return getBDist() * sin(getBAngle() / 57.3);
-}
-
-int Camera::getY(){
-  return getCamDist() * cos(getCamAngle() / 57.3);
-}
-
 

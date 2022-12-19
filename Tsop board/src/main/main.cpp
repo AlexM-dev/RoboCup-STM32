@@ -197,6 +197,7 @@ int main (void)
 	Multiplexer mp(state4, state3, state2, state1, mpDma, 2, DMA1_Channel1);
   int data[32];
 	int nonF1[SORT_SIZE], nonF2[SORT_SIZE];
+	volatile int test1, test2;
 	volatile double dist, angle;
 	double x, y;
 	int i;
@@ -220,7 +221,14 @@ int main (void)
 			//data[i] = mp.getPh1Value(i);
 			//time_service::delay_ms(5);
 			//data[16 + i] = mp.getPh2Value(i);
-			//time_service::delay_ms(5);
+   
+			
+			if (i == 5) {
+				test1 = data[i];
+			}
+			if (i == 6) {
+				test2 = data[i];
+			}
 			
 			if (data[i] > 2500) {
 				data[i] = 0;
@@ -234,7 +242,7 @@ int main (void)
 				data[16 + i] = 1;
 			}
 		}
-		//data[31] = 0;
+		data[31] = 0;
 		x = getX(data);
 		y = getY(data);
 	

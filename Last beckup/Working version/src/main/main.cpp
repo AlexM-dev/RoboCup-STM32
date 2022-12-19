@@ -392,19 +392,16 @@ int main()
 			cam.readData();
 			gyro.read();
 			if(CODE == ATTACKER) {
-				int speedFast = 2500;
-				int speedSlow = 3000;				
+				cam.setGyroAng(gyro.getDev());
+				gyro.setRotation(0);
+				math.setVector(0, 0);
+				/*int speedSlow = 3000;			
 				volatile int tAng = tsop.getAngle() - cam.getCamAngle();
 				math.setVector(0, 0);
-				cam.setGyroAng(0);
+				cam.setGyroAng(gyro.getDev());
 				gyro.setRotation(0);
-			
-				if (cam.getCamDist() == 0) {
-					gyro.setRotation(0);
-				} else {
-					cam.setGyroAng(gyro.getDev());
-					gyro.setRotation(cam.getCamAngle());
-				}
+				tsop.setGyroAng(0);
+				gyro.setMaxSpeed(4096);
 				
 				
 				if (tsop.isCanSee()) {
@@ -432,7 +429,7 @@ int main()
 					}
 				} else {
 					math.setVector(0,0);
-				}
+				}*/
 				
 				/*if(cam.getCamDist() != 0) 
 				{
@@ -469,6 +466,10 @@ int main()
 					}
 				}*/
 						
+				double x = cam.getCamDist() * sin(cam.getCamAngle() / 57.3);
+				double y = 85 - cam.getCamDist() * cos(cam.getCamAngle() / 57.3);
+				math.setSpeed(sqrt(pow(x,2) + pow(y, 2)) * 100);
+				math.setAngle(90 + atan2(y, x) * 57.3);
 				//Move
 				k = gyro.getAngle();
 				math.calculateSpeed(math.getAngle(), math.getSpeed(), sp1, sp2, sp3, sp4);

@@ -101,3 +101,68 @@ void mathematics::calculateSpeed(int32_t angle, int32_t maxSpeed, int32_t &sp1, 
 	sp3 = sin((angle - 135) / DEGREE_TO_RADIAN) * maxSpeed;
 	sp4 = sin((angle - 45) / DEGREE_TO_RADIAN) * maxSpeed;
 }
+
+void mathematics::getVecFromTr(double x, double y, unsigned long t, int32_t &sp, int32_t &ang) {
+	double newX, newY;
+	double S = V * t;
+	
+	if (startY < offsetY - r) { //Robot on the line
+		newY = startY + S;
+		newX = startX;
+		//a = 90;
+	} else { //Robot on the cercle
+		a -= (S * 180) / (pi * r);
+		if (a <= 0) {
+			newX = r * side + offsetX;
+			newY = f(r) + offsetY;
+		} else {
+			newX = r * cos(a / 57.3) * side + offsetX;
+			newY = f(r * cos(a / 57.3)) + offsetY;
+		}
+	}
+	
+	//FOR TEST//
+	newX = 0;
+	newY = 0;
+
+	ang = atan2(newY - y, newX - x) * 57.3;
+	sp = 100 * sqrt(pow(newY - y, 2) + pow(newX - x, 2));
+	if (sp > 3000)
+		sp = 3000;
+	updateStartDot(newX, newY);
+}
+
+void mathematics::setStartDot(double x, double y) {
+	a = 90;
+	if (x < 0) {
+		side = 1;
+		offsetX = -70; 
+		offsetY = 80;
+	} else {
+		side = -1;
+		offsetX = 70;
+		offsetY = 80;
+	}
+	
+	if (y <  offsetY - r) {
+		startY = y;
+		startX = offsetX + r * side;
+	} else {
+		startY = y;
+		startX = g(y) * side + offsetX;
+	}
+	
+}
+
+void mathematics::updateStartDot(double x, double y) {
+	startX = x;
+	startY = y;
+}
+
+double mathematics::f(double x) { //Cercle
+	return -(r - sqrt(-(x * x - 2 * x * r)));
+}
+
+double mathematics::g(double x) { // f-1(x)
+	return -(-r + sqrt(-2 * x * r - x * x));
+}

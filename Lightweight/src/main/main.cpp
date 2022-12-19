@@ -376,9 +376,10 @@ int main()
 	int k = 0;
 	int gkGo = 0;
 	unsigned long timer = 0;
-	volatile bool f = false;
+	volatile bool f = false, updateF = false;
 	int state = 0;
 	int goalSide = 0;
+	int32_t sp = 0, ang = 0;
 //	int mf[1024];
 //	int c = 0;
 	
@@ -388,73 +389,48 @@ int main()
 			gyro.read();
 			gyro.setRotationByGyro();
 		}
+		tsop.read();
+		cam.readData();
+		gyro.read();
 		if(switchPin.readPin())
 		{
-			tsop.read();
-			cam.readData();
-			gyro.read();
 			if(CODE == ATTACKER) {
 				int speedFast = 2500;
 				int speedSlow = 3000;			
 				volatile int tAng = tsop.getAngle() - cam.getCamAngle();
 				math.setVector(0, 0);
-				cam.setGyroAng(gyro.getDev());
+				cam.setGyroAng(0);
 				gyro.setRotation(0);
 				tsop.setGyroAng(0);
 				gyro.setMaxSpeed(4096);
 				
+				if (cam.getCamDist() != 0) {
+					cam.setGyroAng(gyro.getDev());
+				}
+				
+				/*if (tsop.isCanSee()) {
+					tsop.setGyroAng(gyro.getDev());
+				}*/
  				
 				if(true) { //Ball cathed
 					double x = cam.getCamDist() * sin(cam.getCamAngle() / 57.3);
 					double y = 85 - cam.getCamDist() * cos(cam.getCamAngle() / 57.3);
-					static int32_t sp = 0, ang = 0;
 					if (state == 0) {
 						math.setStartDot(x, y);
 						state = 1;
 						timer = millis();
 					} else {
-						math.getVecFromTr(x, y, millis() - timer, sp, ang);
+						//math.setAngle(atan2(y, x) * 57.3);
+						if (millis() - timer > 0) {
+							math.getVecFromTr(x, y, millis() - timer, sp, ang);
+							timer = millis();
+						}
 						math.setSpeed(sp);
-						math.setAngle(ang);
-						timer = millis();
-					}
-					/*if(cam.getCamDist() * sin(cam.getCamAngle() / 57.3) < 0)
-							goalSide = 1;
-					else 
-							goalSide = -1;
-					goalSide = 1;
-					if (abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) < 40) {
-						state = 1;
-					}
-						
-					if (state == 0) {
-						state = 1;
-					} else if (state == 1) {
-						gyro.setMaxSpeed(700);
-						gyro.setRotation(90 * goalSide);
-						math.setVector(90 * goalSide - gyro.getDev(), 3000);
-						if (abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) > 45 && cam.getCamDist() != 0) {
+						math.setAngle(ang - gyro.getDev());
+						if (math.isArrived(x, y)) {
 							state = 2;
 						}
-					} else if (state == 2) {
-						gyro.setMaxSpeed(700);
-						gyro.setRotation(180);
-						math.setVector(0 - gyro.getDev(), 3000);
-						if (abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 50 && cam.getCamDist() != 0) {
-							state = 3;
-						}
-					} else if (state == 3) {
-						gyro.setMaxSpeed(3000);
-						gyro.setRotation(-90 * goalSide);
-						math.setVector(0 - gyro.getDev(), 3000);
-						if (abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 30 && cam.getCamDist() != 0) {
-							state = 4;
-						}
-					} else if (state == 4) {
-						gyro.setMaxSpeed(3000);
-						gyro.setRotation(-90 * goalSide);
-						math.setVector(0, 0);
-					}*/
+					}
 				} else {
 					state = 0;
 					if (tsop.isCanSee()) {
@@ -511,13 +487,13 @@ int main()
 						math.setVector(0 - gyro.getTargetRobotAngle(), speedFast);
 					}
 				}*/
-							
+					
 				k = gyro.getAngle();
-				if (abs(float(gyro.getDevFromTarget())) > 15 && state != 3)
+				if (abs(float(gyro.getDevFromTarget())) > 30 && state != 3)
 					math.setSpeed(0);
 				
 				math.calculateSpeed(math.getAngle(), math.getSpeed(), sp1, sp2, sp3, sp4);
-				//volatile int a = cam.getCamAngle();
+				volatile int a = math.getAngle();
 				robot.move(sp1 + k, sp2 + k, sp3 + k, sp4 + k);
 				//
 			} 

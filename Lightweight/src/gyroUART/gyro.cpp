@@ -51,7 +51,7 @@ void gyro::setMaxSpeed(int a) {
 }
 
 void gyro::setRotation(int a) {	
-  targetAngle = a + zeroAngle;
+  targetAngle = getFormatedAngle(getFormatedAngle(a) + zeroAngle);
 }
 
 int gyro::getTargetRobotAngle() {
