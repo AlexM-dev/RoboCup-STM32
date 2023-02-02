@@ -2,11 +2,11 @@ thresholds = [(50, 86, 18, 35, 26, 66),
 (28, 38, -2, 19, -43, -22)]
 
 
-cX = 162
-cY = 141
+#cX = 162
+#cY = 141
 
-#cX = 154
-#cY = 130
+cX = 134
+cY = 132
 
 import sensor, image, math, pyb
 from pyb import UART
@@ -99,7 +99,8 @@ def crc8(data, len):
     return crc
 
 while(True):
-    img = sensor.snapshot()
+    #img = sensor.snapshot()
+    img = sensor.snapshot().mask_circle(134,132,125)
     yS=0
     bS=0
     #led.on()

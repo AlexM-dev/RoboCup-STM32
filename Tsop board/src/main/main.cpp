@@ -223,16 +223,16 @@ int main (void)
 			//data[16 + i] = mp.getPh2Value(i);
    
 			
-			if (i == 5) {
+			if (i == 3) {
 				test1 = data[i];
 			}
-			if (i == 6) {
+			if (i == 4) {
 				test2 = data[i];
 			}
 			
 			if (data[i] > 2500) {
 				data[i] = 0;
-			} else {
+			} else { 
 				data[i] = 1;
 			}
 			
@@ -256,6 +256,7 @@ int main (void)
 		Uart::write(uint8_t(angle / 2));
 		Uart::write(uint8_t(dist * 10)); 
 		uint8_t dt[2];
+		a = dist * 10;
 		dt[0] = uint8_t(angle / 2);
 		dt[1] = uint8_t(dist * 10);
 		Uart::write(crc8(dt, 2)); 

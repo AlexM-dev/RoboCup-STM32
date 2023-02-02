@@ -128,6 +128,23 @@ int main()
 	time_service::startTime();
   time_service::delay_ms(500);
 	
+	/*static Pin dribbler(GPIO_Pin_7,
+							GPIOE,
+							GPIO_Mode_AF,
+							TIM9,
+							CHANNEL2,
+							RCC_APB2Periph_TIM9,
+							GPIO_PinSource6,
+							GPIO_AF_TIM9,
+							65535,
+							1,
+							GPIO_OType_PP,
+							GPIO_PuPd_NOPULL);
+	dribbler.pinInit();
+	dribbler.pwmInit();
+	dribbler.pwm(32125); */
+
+	
 	static Pin m1In1(GPIO_Pin_6,
 									GPIOE,
 									GPIO_Mode_AF,
