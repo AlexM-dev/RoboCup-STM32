@@ -545,7 +545,7 @@ int main()
 				//
 			} 
 			else if(CODE == GOALKEEPER) {
-				int speedGK = 3500; 				
+				int speedGK = 2500; 				
 				math.setVector(0, 0);
 				volatile int tAng = FAng(tsop.getAngle() - cam.getCamAngle()); 
 				if(tsop.isCanSee()) {

@@ -40,7 +40,7 @@
 .\objects\gyro.o: .\src\spl4\inc\stm32f4xx_fsmc.h
 .\objects\gyro.o: .\src\pins\pins_setup.h
 .\objects\gyro.o: .\src\main\project_config.h
-.\objects\gyro.o: .\src\usart1\usart1.h
+.\objects\gyro.o: .\src\uart4\uart4.h
 .\objects\gyro.o: .\src\main\project_config.h
 .\objects\gyro.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\gyro.o: .\src\time_service\time_service.h

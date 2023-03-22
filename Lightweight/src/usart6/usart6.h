@@ -12,8 +12,8 @@ namespace Usart6
         uint16_t available();
 //        Pin m_txPin;
 //        Pin m_rxPin;
-        extern volatile uint8_t tx[8];
-        extern volatile uint8_t rx[8];
+        extern volatile uint8_t tx[16];
+        extern volatile uint8_t rx[16];
         extern volatile uint16_t m_rxCnt;
         extern volatile uint16_t m_txCnt; 
         extern volatile bool fl;

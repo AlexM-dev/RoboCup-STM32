@@ -9,7 +9,7 @@ extern "C"
 			if(data & USART_SR_RXNE){
 					Usart6::rx[Usart6::m_rxCnt] = USART6->DR; 
 					Usart6::m_rxCnt++;
-					if (Usart6::m_rxCnt == 8)
+					if (Usart6::m_rxCnt == 16)
 					{
 							Usart6::m_rxCnt = 0;
 					}
@@ -22,7 +22,7 @@ extern "C"
 							(USART6->DR) = Usart6::tx[Usart6::m_sendCnt];
 							//Uart::m_txCnt;
 							Usart6::m_sendCnt++;
-							if(Usart6::m_sendCnt == 8)Usart6::m_sendCnt = 0;
+							if(Usart6::m_sendCnt == 16)Usart6::m_sendCnt = 0;
 					}
 					else{
 							Usart6::fl = 1;
@@ -44,8 +44,8 @@ namespace Usart6{
 //{
 //               
 //}
-    volatile uint8_t tx[8];
-    volatile uint8_t rx[8];
+    volatile uint8_t tx[16];
+    volatile uint8_t rx[16];
     volatile uint16_t m_rxCnt;
     volatile uint16_t m_txCnt; 
     volatile bool fl;
@@ -62,7 +62,7 @@ namespace Usart6{
        // m_rxPin.pinInit();
         RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART6, ENABLE);
         USART_InitTypeDef uart;
-        uart.USART_BaudRate = 19200;
+        uart.USART_BaudRate = 460800;
         uart.USART_WordLength = USART_WordLength_8b;
         uart.USART_StopBits = USART_StopBits_1;
         uart.USART_Parity = USART_Parity_No;
@@ -84,7 +84,7 @@ namespace Usart6{
       ENTER_CRITICAL_SECTION();  
       a = rx[m_readCnt];
       m_readCnt++;
-      if (m_readCnt == 8)
+      if (m_readCnt == 16)
       {
           m_readCnt = 0;
       }
@@ -110,7 +110,7 @@ namespace Usart6{
        if (fl == 0){ 
        tx[m_txCnt] = byte;
        m_txCnt++;
-       if (m_txCnt == 8)m_txCnt = 0;
+       if (m_txCnt == 16)m_txCnt = 0;
        }
        else{
            fl = 0;

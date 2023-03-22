@@ -4,14 +4,14 @@ gyro::gyro(Pin &tx, Pin &rx):m_tx(tx),m_rx(rx)
 {
 	m_tx.pinInit();
 	m_rx.pinInit();
-	Usart1::uartInit();
+	Uart4::uartInit();
 	I = 0;
-	maxSpeed = 0;
+	maxSpeed = 3500;
 }
 void gyro::read()
 {
-  if(Usart1::available() > 0){
-    rAngle = Usart1::read() * 2;
+  if(Uart4::available() > 0){
+    rAngle = Uart4::read() * 2;
 
     int err = targetAngle - rAngle;
     if (err > 180) err-=360;
@@ -67,10 +67,8 @@ int gyro::getDev() {
 }
 
 int gyro::getAngle() {
-	if (rotationK > maxSpeed)
-		return maxSpeed;
-	if (rotationK < -maxSpeed)
-		return -maxSpeed;
+	if (abs(float(rotationK)) > maxSpeed)
+		return maxSpeed * rotationK / abs(float(rotationK));
 	return rotationK;
 }
 

@@ -8,7 +8,7 @@ class Motor
         Motor(Pin &motorPinIn1,
               Pin &motorPinIn2);
         void motorInit();
-        void go(int32_t speed);
+        void go(int32_t speed, uint32_t period);
     private:
         //Pin &m_motorPinEn; 
         Pin &m_motorPinIn1;

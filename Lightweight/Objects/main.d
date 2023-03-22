@@ -75,9 +75,11 @@
 .\objects\main.o: .\src\main\project_config.h
 .\objects\main.o: .\src\lower_board\lower_board.h
 .\objects\main.o: .\src\main\project_config.h
-.\objects\main.o: .\src\usart3\usart3.h
+.\objects\main.o: .\src\usart6\Usart6.h
 .\objects\main.o: .\src\main\project_config.h
 .\objects\main.o: .\src\bluetooth_send\bluetooth_send.h
+.\objects\main.o: .\src\main\project_config.h
+.\objects\main.o: .\src\usart3\usart3.h
 .\objects\main.o: .\src\main\project_config.h
 .\objects\main.o: .\src\bluetooth_robot\bluetooth_robot.h
 .\objects\main.o: .\src\main\project_config.h
@@ -88,5 +90,5 @@
 .\objects\main.o: .\src\main\project_config.h
 .\objects\main.o: .\src\gyroUART\gyro.h
 .\objects\main.o: .\src\main\project_config.h
-.\objects\main.o: .\src\usart1\usart1.h
+.\objects\main.o: .\src\uart4\uart4.h
 .\objects\main.o: .\src\main\project_config.h

@@ -24,6 +24,7 @@ class Pin
 				void setBit();
 				void resetBit();
 				bool readPin();
+				uint32_t m_period;
     private:
         uint16_t m_pinNumber;
         GPIO_TypeDef * m_GPIOx;
@@ -31,7 +32,6 @@ class Pin
 				TIM_TypeDef* m_timer1;
 				uint32_t m_channel1;
 				uint32_t m_tim1;
-				uint32_t m_period;
 		    uint16_t m_GPIO_PinSource;
 				uint8_t m_GPIO_AF_TIM;
 				uint32_t m_prescaler;

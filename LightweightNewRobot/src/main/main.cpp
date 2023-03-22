@@ -171,25 +171,25 @@ int main()
 									GPIO_PuPd_UP);
 	static 	Motor m1(m1In1, m1In2);
 	
-  static Pin m2In1(GPIO_Pin_7,
-									GPIOB,
+  static Pin m2In1(GPIO_Pin_14,
+									GPIOD,
 									GPIO_Mode_AF,
 									TIM4,
-									CHANNEL2,
+									CHANNEL3,
 									RCC_APB1Periph_TIM4,
-									GPIO_PinSource7,
+									GPIO_PinSource14,
 									GPIO_AF_TIM4,
 									4096,
 									1,
 									GPIO_OType_PP,
 									GPIO_PuPd_NOPULL);
-	static Pin m2In2(GPIO_Pin_8,
-	  							 GPIOB,
+	static Pin m2In2(GPIO_Pin_15,
+	  							 GPIOD,
 									 GPIO_Mode_AF,
 									 TIM4,
-									 CHANNEL3,
+									 CHANNEL4,
 									 RCC_APB1Periph_TIM4,
-									 GPIO_PinSource8,
+									 GPIO_PinSource15,
 									 GPIO_AF_TIM4,
 									 4096,
 									 1,
@@ -197,19 +197,7 @@ int main()
 									 GPIO_PuPd_NOPULL);
 	static Motor m2(m2In1, m2In2);
 	
-	static Pin m3In1(GPIO_Pin_14,
-									GPIOE,
-									GPIO_Mode_AF,
-									TIM1,
-									CHANNEL4,
-									RCC_APB2Periph_TIM1,
-									GPIO_PinSource14,
-									GPIO_AF_TIM1,
-									4096,
-									1,
-									GPIO_OType_PP,
-									GPIO_PuPd_NOPULL);
-	static Pin m3In2(GPIO_Pin_10,
+	static Pin m3In1(GPIO_Pin_10,
 									GPIOB,
 									GPIO_Mode_AF,
 									TIM2,
@@ -221,27 +209,39 @@ int main()
 									1,
 									GPIO_OType_PP,
 									GPIO_PuPd_NOPULL);
-	static Motor m3(m3In1, m3In2);
-	
-	static Pin m4In2(GPIO_Pin_8,
-									GPIOC,
+	static Pin m3In2(GPIO_Pin_11,
+									GPIOB,
 									GPIO_Mode_AF,
-									TIM3,
-									CHANNEL3,
-									RCC_APB1Periph_TIM3,
-									GPIO_PinSource8,
-									GPIO_AF_TIM3,
+									TIM2,
+									CHANNEL4,
+									RCC_APB1Periph_TIM2,
+									GPIO_PinSource11,
+									GPIO_AF_TIM2,
 									4096,
 									1,
 									GPIO_OType_PP,
 									GPIO_PuPd_NOPULL);
-	static Pin m4In1(GPIO_Pin_15,
+	static Motor m3(m3In1, m3In2);
+	
+	static Pin m4In2(GPIO_Pin_12,
 									GPIOD,
 									GPIO_Mode_AF,
 									TIM4,
-									CHANNEL4,
+									CHANNEL1,
 									RCC_APB1Periph_TIM4,
-									GPIO_PinSource15,
+									GPIO_PinSource12,
+									GPIO_AF_TIM4,
+									4096,
+									1,
+									GPIO_OType_PP,
+									GPIO_PuPd_NOPULL);
+	static Pin m4In1(GPIO_Pin_13,
+									GPIOD,
+									GPIO_Mode_AF,
+									TIM4,
+									CHANNEL2,
+									RCC_APB1Periph_TIM4,
+									GPIO_PinSource13,
 									GPIO_AF_TIM4,
 									4096,
 									1,
@@ -345,8 +345,8 @@ int main()
 	
 	 
 	static Pin button(GPIO_Pin_2,
-				 GPIOC,
-					GPIO_Mode_IN,
+				 GPIOD,
+				 GPIO_Mode_IN,
 				 TIM3,
 				 CHANNEL2,
 				 RCC_APB1Periph_TIM3,
@@ -384,7 +384,6 @@ int main()
 			 GPIO_OType_PP,
 			 GPIO_PuPd_DOWN);
 	lightTransistor.pinInit();
-				lightTransistor.setBit();
 	/*while(1 == 1) {
 			lightTransistor.setBit();
 			delay(3);
@@ -393,6 +392,9 @@ int main()
 	}*/
 	//lightTransistor.pwmInit();
 	//lightTransistor.pwm(4096);
+	
+				lightTransistor.setBit();
+
 	
 	ballSensor.pinInit();
 	Adc mpAdc(ADC1, 1, 0, ADC_Channel_11, RCC_APB2Periph_ADC1, ballSensor);
@@ -406,6 +408,18 @@ int main()
 	robot.robotInit();
 	mathematics math;
 	
+	bool tempFlag = 0;
+	while(1)
+	{
+		if(button.readPin()){
+			tempFlag = !tempFlag;
+		}
+		if (tempFlag) 
+			lightTransistor.setBit();
+		else
+			lightTransistor.resetBit();
+		//robot.move(2000, 2000, 2000, 2000);
+	}
 	//IMU imu;
 	//imu.init(_SPI1, PA1);
 	
@@ -426,7 +440,7 @@ int main()
 	
 	while(1)
 	{
-		lightTransistor.pwm(4096);
+		robot.move(2000, 2000, 2000, 2000);
 		if(button.readPin()){
 			gyro.read();
 			gyro.setRotationByGyro();

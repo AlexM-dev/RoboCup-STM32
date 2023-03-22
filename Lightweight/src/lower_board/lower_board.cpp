@@ -4,12 +4,13 @@ lowerBoard::lowerBoard(Pin &tx, Pin &rx):m_tx(tx),m_rx(rx)
 {
 	m_tx.pinInit();
 	m_rx.pinInit();
-	Usart3::usartInit();
+	Usart6::usartInit();
 	erri = 0;
 	m_canSee = false;
 	m_angle = 0;
 	m_dist = 0;
 	count = 0;
+	gyroAng = 0;
 }
 
 int lowerBoard::crc8(int* data, int len)
@@ -29,10 +30,16 @@ void lowerBoard::read()
 {
 	int dt[3];
 
-  if(Usart3::available() > 3){
-    if(Usart3::read() == 0xff){
+	/*if(Usart6::available()) {
+		m_canSee = true;
+		m_dist = 100;
+		m_angle = Usart6::read() * 2;
+	}
+	return;*/
+  if(Usart6::available() > 3){
+    if(Usart6::read() == 0xff){
       for(int i = 0; i < 3; ++i)
-        dt[i] = Usart3::read();
+        dt[i] = Usart6::read();
 			
 			if(crc8(dt, 2) == dt[2])
 			{

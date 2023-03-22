@@ -1,16 +1,16 @@
 #pragma once
 #include <project_config.h>
 #include <pins_setup.h>
-#include <usart1.h>
+#include <uart4.h>
 #include <math.h>
 #include <time_service.h>
 #include <mpu9250.h>
 
-#define MAX_ROTATION_K 2000
-#define MIN_ROTATION_K 200
-#define ROT_K 50
-#define ROT_D 40
-#define ROT_I 0.0000
+#define MAX_ROTATION_K 250
+#define MIN_ROTATION_K 15
+#define ROT_K 1.875
+#define ROT_D 1
+#define ROT_I 0
 
 #define ACCELERATION 25
 

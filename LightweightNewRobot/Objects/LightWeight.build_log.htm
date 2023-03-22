@@ -21,7 +21,7 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
 Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-C:\Users\ќблочко\Documents\RoboCup-STM32\Lightweight Ч копи€\LightWeight.uvprojx
+C:\Users\ќблочко\Documents\RoboCup-STM32\LightweightNewRobot\LightWeight.uvprojx
 Project File Date:  02/01/2023
 
 <h2>Output:</h2>
@@ -32,16 +32,18 @@ src\main\main.cpp(95): warning:  #1035-D: single-precision operand implicitly co
   	double angK = 0.04 * pow(double(Ec), double(0.15 * abs(angle)));
 src\main\main.cpp(99): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	double distK = 0.02 * pow(double(Ec), double(4.5 * dist));
-src\main\main.cpp(440): warning:  #177-D: variable "speedFast"  was declared but never referenced
+src\main\main.cpp(426): warning:  #185-D: dynamic initialization in unreachable code
+  	int32_t sp1 = 0;
+src\main\main.cpp(454): warning:  #177-D: variable "speedFast"  was declared but never referenced
   				int speedFast = 2500;
-src\main\main.cpp(441): warning:  #177-D: variable "speedSlow"  was declared but never referenced
+src\main\main.cpp(455): warning:  #177-D: variable "speedSlow"  was declared but never referenced
   				int speedSlow = 3000;			
-src\main\main.cpp(422): warning:  #177-D: variable "goalSide"  was declared but never referenced
+src\main\main.cpp(436): warning:  #177-D: variable "goalSide"  was declared but never referenced
   	int goalSide = 0;
-src\main\main.cpp: 5 warnings, 0 errors
+src\main\main.cpp: 6 warnings, 0 errors
 linking...
-Program Size: Code=30418 RO-data=1070 RW-data=192 ZI-data=4944  
-".\Objects\LightWeight.axf" - 0 Error(s), 5 Warning(s).
+Program Size: Code=21014 RO-data=634 RW-data=192 ZI-data=4944  
+".\Objects\LightWeight.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -54,7 +56,7 @@ Package Vendor: Keil
   C:\Users\ќблочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

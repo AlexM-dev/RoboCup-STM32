@@ -107,3 +107,7 @@ void Camera::setGyroAng(int a){
   gyroAng = getFormatedAngle(a);
 }
 
+void Camera::changeSide( void ) {
+	goal = !goal;
+}
+

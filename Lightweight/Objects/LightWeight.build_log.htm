@@ -22,12 +22,32 @@ Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 C:\Users\Облочко\Documents\RoboCup-STM32\Lightweight\LightWeight.uvprojx
-Project File Date:  05/17/2022
+Project File Date:  03/22/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-".\Objects\LightWeight.axf" - 0 Error(s), 0 Warning(s).
+compiling main.cpp...
+src\main\main.cpp(95): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	double angK = 0.04 * pow(double(Ec), double(0.15 * abs(angle)));
+src\main\main.cpp(99): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	double distK = 0.02 * pow(double(Ec), double(4.5 * dist));
+src\main\main.cpp(468): warning:  #177-D: variable "gkGo"  was declared but never referenced
+  	int gkGo = 0;
+src\main\main.cpp(469): warning:  #177-D: variable "timer"  was declared but never referenced
+  	unsigned long timer = 0;
+src\main\main.cpp(471): warning:  #177-D: variable "state"  was declared but never referenced
+  	int state = 0;
+src\main\main.cpp(472): warning:  #177-D: variable "goalSide"  was declared but never referenced
+  	int goalSide = 0;
+src\main\main.cpp(473): warning:  #177-D: variable "sp"  was declared but never referenced
+  	int32_t sp = 0, ang = 0;
+src\main\main.cpp(473): warning:  #177-D: variable "ang"  was declared but never referenced
+  	int32_t sp = 0, ang = 0;
+src\main\main.cpp: 8 warnings, 0 errors
+linking...
+Program Size: Code=19318 RO-data=778 RW-data=180 ZI-data=5020  
+".\Objects\LightWeight.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -40,7 +60,7 @@ Package Vendor: Keil
   C:\Users\Облочко\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

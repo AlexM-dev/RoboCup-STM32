@@ -1,7 +1,7 @@
 #pragma once
 #include <project_config.h>
 #include <pins_setup.h>
-#include <usart3.h>
+#include <Usart6.h>
 #include <stm32f407_sysFunc.h>
 class lowerBoard
 {
@@ -20,7 +20,7 @@ class lowerBoard
 		int m_angle; 
 		bool m_canSee;
 		int count;
+		int getFormatedAngle(int ang);
 		unsigned long erri; 
 		int crc8(int* data, int len); 
-		int getFormatedAngle(int ang);
 };

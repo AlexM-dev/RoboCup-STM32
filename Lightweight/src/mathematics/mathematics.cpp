@@ -31,8 +31,18 @@ mathematics::mathematics()
 		///
 }
 
+int32_t mathematics::getFormatedAngle(int32_t ang){
+  while(ang > 180)
+    ang-=360;
+  while(ang < -180)
+    ang+=360;
+  return ang;
+}
+
 void mathematics::setAngle(int32_t angleT) {
-	m_angle = angleT;
+	angleT = getFormatedAngle(angleT);
+	//m_angle = abs(float(180 - abs(float(angleT)))) * angleT / abs(float(angleT));
+	m_angle = 180 - angleT;
 }
 
 void mathematics::setSpeed(int32_t speedT) {
@@ -40,9 +50,20 @@ void mathematics::setSpeed(int32_t speedT) {
 }
 
 void mathematics::setVector(int32_t angleT, int32_t speedT) {
-	m_angle = angleT;
+	angleT = getFormatedAngle(angleT);
+	//m_angle = abs(float(180 - abs(float(angleT)))) * angleT / abs(float(angleT));
+	m_angle = 180 - angleT;
 	m_speed = speedT;
 }
+
+void mathematics::setPeriod(uint32_t period) {
+	m_period = period;
+}
+
+uint32_t mathematics::getPeriod( void ) {
+	return m_period;
+}
+
 
 int32_t mathematics::getAngle( void ) {
 	return m_angle;
@@ -65,10 +86,10 @@ void mathematics::addVector(int32_t angleT, int32_t speedT) {
 
 void mathematics::calculateSpeed(int32_t angle, int32_t maxSpeed, int32_t &sp1, int32_t &sp2, int32_t &sp3, int32_t &sp4)
 {
-	if (maxSpeed > 4000)
-		maxSpeed = 4000;
+	if (maxSpeed >= m_period)
+		maxSpeed = m_period;
 	angle = -(angle + 180);
-	volatile int loas = time_service::getCurTime() - time_;
+	/*volatile int loas = time_service::getCurTime() - time_;
 	volatile int32_t s = maxSpeed;
 	volatile int32_t cs = curspeed;
 	
@@ -86,7 +107,7 @@ void mathematics::calculateSpeed(int32_t angle, int32_t maxSpeed, int32_t &sp1, 
 		else if (curspeed > 0)
 		{
 			curspeed+=ACCELERATION*(time_service::getCurTime() - time_);
-			if (curspeed >4096)curspeed = 4096;
+			if (curspeed >= period) curspeed = period;
 			if (maxSpeed < curspeed)curspeed = maxSpeed;
 		}
 		if (curspeed == 0)curspeed++;
@@ -96,17 +117,17 @@ void mathematics::calculateSpeed(int32_t angle, int32_t maxSpeed, int32_t &sp1, 
 		if (curspeed < 0)
 		{
 			curspeed-=ACCELERATION*(time_service::getCurTime() - time_);
-			if (curspeed <-4096)curspeed = -4096;
-			if (maxSpeed > curspeed)curspeed = maxSpeed;
+			if (curspeed <= -period) curspeed = -period;
+			if (maxSpeed > curspeed) curspeed = maxSpeed;
 		}	
 		else if (curspeed > 0)
 		{
 				curspeed-=ACCELERATION*(time_service::getCurTime() - time_);
-				if (maxSpeed > curspeed)curspeed = maxSpeed;
+				if (maxSpeed > curspeed) curspeed = maxSpeed;
 		}
-		if (curspeed == 0)curspeed--;
+		if (curspeed == 0) curspeed--;
 	}
-	time_ = time_service::getCurTime();	
+	time_ = time_service::getCurTime();	*/
 	
 	sp1 = sin((angle + 45) / DEGREE_TO_RADIAN) * maxSpeed;
 	sp2 = sin((angle + 135) / DEGREE_TO_RADIAN) * maxSpeed;

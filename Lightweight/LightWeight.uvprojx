@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F407xx,STM32F40_41xxx, USE_FULL_ASSERT, USE_STDPERIPH_DRIVER, HSE_VALUE = 12000000</Define>
               <Undefine></Undefine>
-              <IncludePath>.\src\adc;.\src\cmsis;.\src\dma;.\src\external;.\src\global_macros;.\src\main;.\src\motion_control;.\src\motor_control;.\src\pins;.\src\softI2C;.\src\time_service;.\src\uart;.\src\spl4\inc;.\src\spl4\src;.\src\spl4;.\src\support_pacage;.\src\support_pacage\inc;.\src\support_pacage\gcc;.\src\support_pacage\arm;.\src\mathematics;.\src\ballDetection;.\src\buttonsModule;.\src\usart;.\src\strategy;.\src\usart6;.\src\usart2;.\src\usart1;.\src\gyroscope;.\src\camera;.\src\lower_board;.\src\IRlocator;.\src\usart3;.\src\bluetooth_send;.\src\bluetooth_robot;.\src\oled;.\src\gyroscope;.\src\SPI;.\src\uart4;.\src\gyroscope;.\src\lineSensors;.\src\gyroUART</IncludePath>
+              <IncludePath>.\src\adc;.\src\cmsis;.\src\dma;.\src\external;.\src\global_macros;.\src\main;.\src\motion_control;.\src\motor_control;.\src\pins;.\src\softI2C;.\src\time_service;.\src\uart;.\src\spl4\inc;.\src\spl4\src;.\src\spl4;.\src\support_pacage;.\src\support_pacage\inc;.\src\support_pacage\gcc;.\src\support_pacage\arm;.\src\mathematics;.\src\ballDetection;.\src\buttonsModule;.\src\usart;.\src\strategy;.\src\usart6;.\src\usart2;.\src\usart1;.\src\gyroscope;.\src\camera;.\src\lower_board;.\src\IRlocator;.\src\usart3;.\src\bluetooth_send;.\src\bluetooth_robot;.\src\oled;.\src\gyroscope;.\src\SPI;.\src\uart4;.\src\gyroscope;.\src\lineSensors;.\src\gyroUART;.\src\servo</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -949,6 +949,9 @@
               <FilePath>.\src\gyroUART\gyro.h</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>servo</GroupName>
         </Group>
       </Groups>
     </Target>

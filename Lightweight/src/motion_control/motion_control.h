@@ -11,7 +11,7 @@ class robotMotion
                       Motor &m3,
                       Motor &m4);
         void robotInit();
-        void move(int64_t m_speed1, int64_t m_speed2, int64_t m_speed3, int64_t m_speed4);
+        void move(int64_t m_speed1, int64_t m_speed2, int64_t m_speed3, int64_t m_speed4, uint32_t period);
     private:
         Motor &m_m1; 
         Motor &m_m2;

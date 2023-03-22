@@ -20,6 +20,7 @@ class Camera
 		int getAnotherCamAngle();
 		int getFormatedAngle(int ang);
 		bool canSee();
+		void changeSide( void );
 		int getX();
 		int getY(); //ONLY FOR GK. IN ANY CASE USE getCamAngle() and getAnotherCamAngle()
 	private:
@@ -32,7 +33,7 @@ class Camera
 		Pin m_tx, m_rx;
 		int8_t m_line;
 		volatile int data[4], dataOld[4];
-		int goal;
+		bool goal;
 		int crc8(int* data, int len);
 		int t0, t2;
 		bool yCanSee, bCanSee;

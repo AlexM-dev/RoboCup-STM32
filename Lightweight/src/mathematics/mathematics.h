@@ -16,6 +16,8 @@ class mathematics//class for mathematics
 				int32_t getAngle( void );
 				int32_t getSpeed( void );
 				//void setStartDotForTr1(double x, double y)
+				void setPeriod( uint32_t period );
+				uint32_t getPeriod( void );
 				void getVecFromTr(double x, double y, unsigned long t, int32_t &sp, int32_t &ang);
 				void getVecToPoint(double x, double y, double tX, double tY, int32_t &sp, int32_t &ang);
 				void getAngleToPoint(double x, double y, double tX, double tY, int32_t &ang);
@@ -30,6 +32,7 @@ class mathematics//class for mathematics
 				int32_t curspeed;
 				int32_t m_speed;
 				int32_t m_angle;
+				int32_t m_period;
 				double startX, startY;
 				double offsetX, offsetY;
 				int side, curI;
@@ -37,6 +40,7 @@ class mathematics//class for mathematics
 				double r, a;
 				double f(double x);
 				double g(double y);
+				int32_t getFormatedAngle(int32_t ang);
 };
 
 

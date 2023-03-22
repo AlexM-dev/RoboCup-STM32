@@ -40,7 +40,7 @@
 .\objects\lower_board.o: .\src\spl4\inc\stm32f4xx_fsmc.h
 .\objects\lower_board.o: .\src\pins\pins_setup.h
 .\objects\lower_board.o: .\src\main\project_config.h
-.\objects\lower_board.o: .\src\usart3\usart3.h
+.\objects\lower_board.o: .\src\usart6\Usart6.h
 .\objects\lower_board.o: .\src\main\project_config.h
 .\objects\lower_board.o: .\src\gyroscope\stm32f407_sysFunc.h
 .\objects\lower_board.o: .\src\time_service\time_service.h

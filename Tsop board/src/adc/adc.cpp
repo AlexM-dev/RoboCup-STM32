@@ -13,7 +13,7 @@ Adc::Adc(ADC_TypeDef* ADCx,
 	m_RCC_APB2Periph_ADCx = RCC_APB2Periph_ADCx;
     //m_numberOfChannels
     cur = 1;
-	channel[1] = ADC_Channel_0;
+	channel[1] = ADC_Channel_1 ;
 	channel[2] = ADC_Channel_3;
 }
 

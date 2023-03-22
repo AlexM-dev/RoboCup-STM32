@@ -10,7 +10,7 @@
 #define CHANNEL2 2
 #define CHANNEL3 3
 #define CHANNEL4 4
-#define SORT_SIZE 5
+#define SORT_SIZE 15
 #define PI 3.141592653589793
 
 void delay(unsigned int nCount);
@@ -163,23 +163,23 @@ int main (void)
 		GPIO_PinSource10,
 		4096,
 		1);
-	static Pin lightValue(GPIO_Pin_0,
+	static Pin lightValue(GPIO_Pin_1,
 		GPIOA,
 		GPIO_Mode_AIN,
 		TIM2,
-		CHANNEL4,
-		RCC_APB2Periph_TIM1,
-		GPIO_PinSource10,
+		CHANNEL2,
+		RCC_APB1Periph_TIM2,
+		GPIO_PinSource1,
 		4096,
 		1);
 	lightValue.pinInit();
 	static Pin lightValue_2(GPIO_Pin_3,
 		GPIOA,
 		GPIO_Mode_AIN,
-		TIM3,
-		CHANNEL3,
+		TIM2,
+		CHANNEL4,
 		RCC_APB1Periph_TIM2,
-		GPIO_PinSource10,
+		GPIO_PinSource3,
 		4096,
 		1);
 	lightValue_2.pinInit();
@@ -221,16 +221,8 @@ int main (void)
 			//data[i] = mp.getPh1Value(i);
 			//time_service::delay_ms(5);
 			//data[16 + i] = mp.getPh2Value(i);
-   
 			
-			if (i == 3) {
-				test1 = data[i];
-			}
-			if (i == 4) {
-				test2 = data[i];
-			}
-			
-			if (data[i] > 2500) {
+			/*if (data[i] > 2500) {
 				data[i] = 0;
 			} else { 
 				data[i] = 1;
@@ -240,25 +232,32 @@ int main (void)
 				data[16 + i] = 0;
 			} else {
 				data[16 + i] = 1;
-			}
+			}*/
 		}
-		data[31] = 0;
+		data[20] = 4096;
 		x = getX(data);
 		y = getY(data);
 	
 	
 		dist = getDist(x, y);
-		angle = getAngle(x, y) - 135;
-		if (angle < 0) 
+		if (dist < 500) 
+			dist = 0;
+		angle = getAngle(x, y) - 135 + 180;
+		while (angle < 0) 
 			angle += 360;
+		while (angle >= 360) 
+			angle -= 360;
 	
+		dist = uint8_t(dist * 0.005);
+		angle = uint8_t(angle / 2);
+		if (dist > 255) dist = 255;
+		if (angle > 255) angle = 255;
 		Uart::write(0xff);
-		Uart::write(uint8_t(angle / 2));
-		Uart::write(uint8_t(dist * 10)); 
+		Uart::write(angle);
+		Uart::write(dist); 
 		uint8_t dt[2];
-		a = dist * 10;
-		dt[0] = uint8_t(angle / 2);
-		dt[1] = uint8_t(dist * 10);
+		dt[0] = angle;
+		dt[1] = dist;
 		Uart::write(crc8(dt, 2)); 
 	}
 }
