@@ -107,14 +107,14 @@ void lowerBoard::read()
     return (((xAbs-xOne)*(yTwo-yOne))/(xTwo-xOne) + yOne)*fSign;
 }*/
 
-int lowerBoard::getAbsoluteAngle()
+int lowerBoard::getLocalAngle()
 {
 	//int retAng = m_angle + 90;
 	//return m_angle;
 	if(m_angle < 180)
-		return m_angle + gyroAng;
+		return m_angle;
 	else
-		return m_angle - 360 + gyroAng;
+		return m_angle - 360;
 }
 
 int lowerBoard::getAngle()

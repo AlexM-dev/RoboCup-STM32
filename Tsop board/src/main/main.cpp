@@ -196,10 +196,11 @@ int main (void)
 
 	Multiplexer mp(state4, state3, state2, state1, mpDma, 2, DMA1_Channel1);
   int data[32];
+	int binData[32];
 	int nonF1[SORT_SIZE], nonF2[SORT_SIZE];
 	volatile int test1, test2;
 	volatile double dist, angle;
-	double x, y;
+	double x, y, binX, binY;
 	int i;
 	volatile uint8_t a;
 	
@@ -218,37 +219,34 @@ int main (void)
 			data[i] = nonF1[SORT_SIZE / 2];
 			data[16 + i] = nonF2[SORT_SIZE / 2];
 			
-			//data[i] = mp.getPh1Value(i);
-			//time_service::delay_ms(5);
-			//data[16 + i] = mp.getPh2Value(i);
-			
-			/*if (data[i] > 2500) {
-				data[i] = 0;
+			if (data[i] > 2500) {
+				binData[i] = 0;
 			} else { 
-				data[i] = 1;
+				binData[i] = 1;
 			}
 			
 			if (data[16 + i] > 2500) {
-				data[16 + i] = 0;
+				binData[16 + i] = 0;
 			} else {
-				data[16 + i] = 1;
-			}*/
+				binData[16 + i] = 1;
+			}
 		}
 		data[20] = 4096;
+		binData[20] = 0;
 		x = getX(data);
 		y = getY(data);
+		
+		binX = getX(binData);
+		binY = getY(binData);
 	
 	
-		dist = getDist(x, y);
-		if (dist < 500) 
-			dist = 0;
+		dist = getDist(binX, binY);
 		angle = getAngle(x, y) - 135 + 180;
 		while (angle < 0) 
 			angle += 360;
 		while (angle >= 360) 
 			angle -= 360;
 	
-		dist = uint8_t(dist * 0.005);
 		angle = uint8_t(angle / 2);
 		if (dist > 255) dist = 255;
 		if (angle > 255) angle = 255;

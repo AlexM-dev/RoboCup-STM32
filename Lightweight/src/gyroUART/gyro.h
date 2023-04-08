@@ -29,6 +29,7 @@ class gyro
 		int getDev();
 		int getMaxSpeed();
 		int getDevFromTarget();
+		float getRotationKForRotateToBall(float k);
 	private:
 		Pin m_tx, m_rx;
 		int targetAngle, zeroAngle;

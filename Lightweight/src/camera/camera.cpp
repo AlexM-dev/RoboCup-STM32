@@ -8,7 +8,7 @@ Camera::Camera(Pin &tx, Pin &rx):m_tx(tx),m_rx(rx)
 	sign = 1;
 	koef = 1;
 	gotSomething = false;
-	goal = 1;
+	goal = 0;
 	gyroAng = 0;
 }
 

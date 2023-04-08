@@ -11,7 +11,7 @@ class lowerBoard
 		void setGyroAng(int angle);
 		int getDist();
 		int getAngle();
-	  int getAbsoluteAngle();
+	  int getLocalAngle();
 		bool isCanSee();
 	private:
 		Pin m_tx, m_rx;
