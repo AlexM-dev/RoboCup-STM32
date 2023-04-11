@@ -127,7 +127,8 @@ int main()
 	time_service::init();
 	time_service::startTime();
   time_service::delay_ms(500);
-	
+	volatile uint32_t bebra = RCC->PLLCFGR;
+	//603992080
 	/*static Pin dribbler(GPIO_Pin_7,
 							GPIOE,
 							GPIO_Mode_AF,
@@ -156,7 +157,7 @@ int main()
 									period,
 									1,
 									GPIO_OType_PP,
-									GPIO_PuPd_NOPULL);
+									GPIO_PuPd_DOWN);
 	static Pin m1In2(GPIO_Pin_5,
 									GPIOE,
 									GPIO_Mode_AF,
@@ -168,7 +169,7 @@ int main()
 									period,
 									1,
 									GPIO_OType_PP,
-									GPIO_PuPd_NOPULL);
+									GPIO_PuPd_DOWN);
 	static 	Motor m1(m1In1, m1In2);
 	
   static Pin m2In1(GPIO_Pin_14,
@@ -182,7 +183,7 @@ int main()
 									period,
 									1,
 									GPIO_OType_PP,
-									GPIO_PuPd_NOPULL);
+									GPIO_PuPd_DOWN);
 	static Pin m2In2(GPIO_Pin_15,
 	  							 GPIOD,
 									 GPIO_Mode_AF,
@@ -194,7 +195,7 @@ int main()
 									 period,
 									 1,
 									 GPIO_OType_PP,
-									 GPIO_PuPd_NOPULL);
+									 GPIO_PuPd_DOWN);
 	static Motor m2(m2In2, m2In1);
 	
 	static Pin m3In1(GPIO_Pin_10,
@@ -208,7 +209,7 @@ int main()
 									period,
 									1,
 									GPIO_OType_PP,
-									GPIO_PuPd_NOPULL);
+									GPIO_PuPd_DOWN);
 	static Pin m3In2(GPIO_Pin_11,
 									GPIOB,
 									GPIO_Mode_AF,
@@ -220,7 +221,7 @@ int main()
 									period,
 									1,
 									GPIO_OType_PP,
-									GPIO_PuPd_NOPULL);
+									GPIO_PuPd_DOWN);
 	static Motor m3(m3In1, m3In2);
 	
 	static Pin m4In2(GPIO_Pin_12,
@@ -234,7 +235,7 @@ int main()
 									period,
 									1,
 									GPIO_OType_PP,
-									GPIO_PuPd_NOPULL);
+									GPIO_PuPd_DOWN);
 	static Pin m4In1(GPIO_Pin_13,
 									GPIOD,
 									GPIO_Mode_AF,
@@ -246,7 +247,7 @@ int main()
 									period,
 									1,
 									GPIO_OType_PP,
-									GPIO_PuPd_NOPULL);
+									GPIO_PuPd_DOWN);
 	static Motor m4(m4In1, m4In2);
 	
 	static Pin dribbler(GPIO_Pin_9,
@@ -260,7 +261,7 @@ int main()
 							2000,
 							159,
 							GPIO_OType_PP,
-							GPIO_PuPd_NOPULL);
+							GPIO_PuPd_DOWN);
 	dribbler.pinInit();
 	dribbler.pwmInit();
 	
@@ -331,7 +332,7 @@ int main()
 						 4096,
 						 1,
 						 GPIO_OType_PP,
-						 GPIO_PuPd_NOPULL);
+						 GPIO_PuPd_DOWN);
 	static Pin rxTsop(GPIO_Pin_7,
 						 GPIOC,
 						 GPIO_Mode_AF,
@@ -343,7 +344,7 @@ int main()
 						 4096,
 						 1,
 						 GPIO_OType_PP,
-						 GPIO_PuPd_NOPULL);
+						 GPIO_PuPd_DOWN);
 	lowerBoard tsop(txTsop, rxTsop);
  
 	static Pin txCam(GPIO_Pin_2,
@@ -357,7 +358,7 @@ int main()
 						 4096,
 						 1,
 						 GPIO_OType_PP,
-						 GPIO_PuPd_NOPULL);
+						 GPIO_PuPd_DOWN);
  static Pin rxCam(GPIO_Pin_3,
 						 GPIOA,
 						 GPIO_Mode_AF,
@@ -369,7 +370,7 @@ int main()
 						 4096,
 						 1,
 						 GPIO_OType_PP,
-						 GPIO_PuPd_NOPULL);
+						 GPIO_PuPd_DOWN);
  	static Camera cam(txCam, rxCam);
  
  static Pin txGyro(GPIO_Pin_0,
@@ -383,7 +384,7 @@ int main()
 						 4096,
 						 1,
 						 GPIO_OType_PP,
-						 GPIO_PuPd_NOPULL);
+						 GPIO_PuPd_DOWN);
  static Pin rxGyro(GPIO_Pin_1,
 						 GPIOA,
 						 GPIO_Mode_AF,
@@ -395,7 +396,7 @@ int main()
 						 4096,
 						 1,
 						 GPIO_OType_PP,
-						 GPIO_PuPd_NOPULL); 
+						 GPIO_PuPd_DOWN); 
   gyro gyro(txGyro, rxGyro);
  
  	static Pin lightSensor(GPIO_Pin_2,
@@ -409,7 +410,7 @@ int main()
 			 4096,
 			 1,
 			 GPIO_OType_PP,
-			 GPIO_PuPd_NOPULL);
+			 GPIO_PuPd_DOWN);
 	lightSensor.pinInit();
 	lightSensor.setBit();
  
@@ -474,7 +475,7 @@ int main()
 			 4096,
 			 1,
 			 GPIO_OType_PP,
-			 GPIO_PuPd_NOPULL);
+			 GPIO_PuPd_DOWN);
 	ballSensor.pinInit();
 	Adc mpAdc(ADC1, 1, 0, ADC_Channel_13, RCC_APB2Periph_ADC1, ballSensor);
 	mpAdc.sendMeChannel(ADC_Channel_13);
@@ -584,7 +585,8 @@ int main()
 					gyro.setRotation(0);
 				}
 				 
-				if (tsop.isCanSee()) {
+				math.setVector(90, 0);
+				/*if (tsop.isCanSee()) {
 					if (ballCathed) {
 						math.setVector(0, speedFast);
 					} else {
@@ -592,8 +594,7 @@ int main()
 					}
 				} else {
 					math.setVector(0, 0);
-				}
-				math.setVector(0, 0);
+				}*/
 				
 				/*if (tsop.isCanSee()) {
 					gyroFlag = 1;
@@ -641,7 +642,7 @@ int main()
 						k = gyro.getRotationKForRotateToBall(1);
 					}
 				}*/
-				k = gyro.getAngle();
+				k = 1000;//gyro.getAngle();
 			} else if (CODE == GOALKEEPER) {
 				int speedGK = 150; 			
 				int speedGKSlow = 100; 							

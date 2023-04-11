@@ -22,11 +22,29 @@ Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 C:\Users\Облочко\Documents\RoboCup-STM32\Tsop board\Lower_board.uvprojx
-Project File Date:  09/26/2022
+Project File Date:  04/09/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'Target 1'
+Rebuild target 'Target 1'
+compiling stm32f10x_usart.c...
+compiling pin_setup.cpp...
+compiling stm32f10x_dma.c...
+compiling multiplexer.cpp...
+compiling stm32f10x_adc.c...
+compiling main.cpp...
+compiling stm32f10x_tim.c...
+compiling misc.c...
+compiling dma.cpp...
+compiling stm32f10x_gpio.c...
+compiling uart.cpp...
+compiling adc.cpp...
+compiling time_service.cpp...
+compiling stm32f10x_rcc.c...
+assembling startup_stm32f10x_md.s...
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=11040 RO-data=848 RW-data=80 ZI-data=1880  
 ".\Objects\.DOT.X_Lower_board" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -58,26 +76,26 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\system_stm32f10x.c
-      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
 
    * Component: Keil::Device:StdPeriph Drivers:Framework:3.6.0
-      Include file:  Device\StdPeriph_Driver\inc\misc.h
+      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
       Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
       Source file:   Device\StdPeriph_Driver\src\misc.c
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
-      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
+      Include file:  Device\StdPeriph_Driver\inc\misc.h
 
    * Component: Keil::Device:StdPeriph Drivers:GPIO:3.6.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
 
    * Component: Keil::Device:StdPeriph Drivers:RCC:3.6.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
-Build Time Elapsed:  00:00:00
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

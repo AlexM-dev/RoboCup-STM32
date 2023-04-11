@@ -337,7 +337,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>--cpp</MiscControls>
-              <Define></Define>
+              <Define>USE_STDPERIPH_DRIVER, HSE_VALUE = 8000000, USE_HSE</Define>
               <Undefine></Undefine>
               <IncludePath>.\src\spl;.\src\pins;.\src\main;.\src\miltiplexer;.\src\dma;.\src\adc;.\src\uart;.\src\global_macros;.\src\spi;.\src\time_service</IncludePath>
             </VariousControls>

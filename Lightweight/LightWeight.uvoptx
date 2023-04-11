@@ -152,18 +152,34 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>40</LineNumber>
+          <LineNumber>884</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134227526</Address>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>.\src\support_pacage\system_stm32f4xx.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>130</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134234076</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\РћР±Р»РѕС‡РєРѕ\Documents\RoboCup-STM32\Lightweight\src\lower_board\lower_board.cpp</Filename>
+          <Filename>C:\Users\РћР±Р»РѕС‡РєРѕ\Documents\RoboCup-STM32\Lightweight\src\main\main.cpp</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\LightWeight\src/lower_board/lower_board.cpp\40</Expression>
+          <Expression>\\LightWeight\src/main/main.cpp\130</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -302,7 +318,7 @@
         <Ww>
           <count>3</count>
           <WinNumber>2</WinNumber>
-          <ItemText>m_angle,0x0A</ItemText>
+          <ItemText>rAngle,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
@@ -468,6 +484,36 @@
           <count>36</count>
           <WinNumber>2</WinNumber>
           <ItemText>ballCathed,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>37</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>bebra,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>38</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>RCC-&gt;PLLCFGR,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>39</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>RCC,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>40</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>RCC-&gt;PLLCFGR</ItemText>
+        </Ww>
+        <Ww>
+          <count>41</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>*RCC-&gt;PLLCFGR</ItemText>
+        </Ww>
+        <Ww>
+          <count>42</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>&amp;RCC-&gt;PLLCFGR,0x0A</ItemText>
         </Ww>
       </WatchWindow2>
       <Tracepoint>
@@ -800,7 +846,7 @@
 
   <Group>
     <GroupName>time_service</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -864,7 +910,7 @@
 
   <Group>
     <GroupName>main</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1408,7 +1454,7 @@
 
   <Group>
     <GroupName>camera</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1676,7 +1722,7 @@
 
   <Group>
     <GroupName>uart4</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
