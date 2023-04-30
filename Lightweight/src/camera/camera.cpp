@@ -8,7 +8,7 @@ Camera::Camera(Pin &tx, Pin &rx):m_tx(tx),m_rx(rx)
 	sign = 1;
 	koef = 1;
 	gotSomething = false;
-	goal = 0;
+	goal = 1;
 	gyroAng = 0;
 }
 
@@ -18,7 +18,7 @@ void Camera::readData()
 	if(Usart2::available() >= 13){
     char v = Usart2::read();
     if(v == '*'){
-      for(int i = 0; i < 4; ++i){
+      for(int i = 0; i < 6; ++i){
         int a = Usart2::read() - '0';
         int b = Usart2::read() - '0';
         int c = Usart2::read() - '0';
@@ -81,6 +81,18 @@ int Camera::getYDist(){
 
 int Camera::getBDist(){
   return data[3];
+}
+
+int Camera::getYGK(){
+  return data[4];
+}
+
+int Camera::getBGK(){
+  return data[5];
+}
+
+int Camera::getGK() {
+	return getFormatedAngle((goal == 0? getYGK() : getBGK()) + gyroAng);
 }
 
 int Camera::getCamDist(){

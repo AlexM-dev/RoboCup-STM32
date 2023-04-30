@@ -231,8 +231,9 @@ int main (void)
 				binData[16 + i] = 1;
 			}
 		}
-		data[20] = 4096;
-		binData[20] = 0;
+		//data[20] = 4096;
+		//binData[20] = 0;
+		//20 here = 5 real
 		x = getX(data);
 		y = getY(data);
 		
@@ -248,6 +249,7 @@ int main (void)
 			angle -= 360;
 	
 		angle = uint8_t(angle / 2);
+		dist = uint8_t(dist * 10);
 		if (dist > 255) dist = 255;
 		if (angle > 255) angle = 255;
 		Uart::write(0xff);

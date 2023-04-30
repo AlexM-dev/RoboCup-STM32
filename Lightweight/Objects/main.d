@@ -92,3 +92,4 @@
 .\objects\main.o: .\src\main\project_config.h
 .\objects\main.o: .\src\uart4\uart4.h
 .\objects\main.o: .\src\main\project_config.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cmath

@@ -1,17 +1,17 @@
-EXPOSURE_TIME_SCALE = 0.7
+EXPOSURE_TIME_SCALE = 1
 
-thresholds = [(74, 95, -40, 2, 35, 76),
-(12, 35, 11, 26, -76, -26)]
+thresholds = [(36, 59, -27, 18, 33, 61),
+(36, 48, -19, 6, -39, -20)]
 
 
 #thresholds = [(42, 67, -12, 15, 7, 37),
 #(29, 38, -32, 8, -26, -16)]
 
-cX = 163
-cY = 129
+cX = 160
+cY = 121
 
-#cX = 174
-#cY = 137
+#cX = 170
+#cY = 132
 
 import sensor, image, math, pyb, time, random
 from pyb import UART
@@ -62,23 +62,24 @@ clock = time.clock()
 sensor.skip_frames(time = 2000) #delay
 
 goalCoords = [[0, 0],
-              [10, 19],
-              [15, 25],
-              [20, 33],
-              [30, 46],
+              [10, 15],
+              [15, 24],
+              [20, 31],
+              [30, 49],
               [40, 60],
-              [50, 74],
-              [60, 83],
-              [70, 91],
-              [80, 97],
-              [90, 101],
+              [50, 73],
+              [60, 85],
+              [70, 93],
+              [80, 99],
+              [90, 104],
               [100, 106],
               [110, 109],
               [120, 111],
               [130, 113],
-              [140, 115],
-              [150, 116],
-              [160, 118]]
+              [140, 116],
+              [150, 117],
+              [160, 118],
+              [170, 119]]
 
 def realDistance(x):
     xOne = 0
@@ -153,7 +154,7 @@ def quicksort(array, begin=0, end=None):
     return _quicksort(array, begin, end)
 
 while(True):
-    img = sensor.snapshot().mask_circle(cX, cY, 125)
+    img = sensor.snapshot().mask_circle(cX, cY, 135)
 
     yS = [0] * 2
     bS = [0] * 2
@@ -182,11 +183,18 @@ while(True):
     secondYArea = 0
     firstBArea = 0
     secondBArea = 0
+    yBiggestBlobAngle = 0
+    bBiggestBlobAngle = 0
 
     blobsY = []
     blobsB = []
 
-    for blob in img.find_blobs(thresholds, pixels_threshold=50, area_threshold=50, merge=True):
+    bGkX = 0
+    bGkY = 0
+    yGkX = 0
+    yGkY = 0
+
+    for blob in img.find_blobs(thresholds, pixels_threshold=50, area_threshold=50, merge=True, margin=20):
         if blob.code() == 1:
             if (blob[2] * blob[3] > firstYArea):
                 secondYArea = firstYArea
@@ -227,6 +235,7 @@ while(True):
             if (blobsY[i + 1][2] * blobsY[i + 1][3] > biggestBlob[2] * biggestBlob[3]):
                 biggestBlob = blobsY[i + 1]
         dot(biggestBlob[0] + biggestBlob[2] / 2, biggestBlob[1] + biggestBlob[3] / 2, color = (54,123,11))
+        yBiggestBlobAngle = int(math.atan2(cX - (biggestBlob[0] + biggestBlob[2] / 2), cY - (biggestBlob[1] + biggestBlob[3] / 2)) / 3.14 * 180)
 
 
     if (yFlag == 1):
@@ -249,19 +258,32 @@ while(True):
                 trueyX = -(yBlob[0][0] + yBlob[0][2] + yBlob[1][0]) / 2 + cX
                 trueyY = -(yBlob[0][1] + yBlob[0][3] / 2 + yBlob[1][1] + yBlob[1][3] / 2) / 2 + cY
 
-        #yGkX = 0
-        #yGkY = 0
+        if (yBlob[1][2] * yBlob[1][3] == 0):
+            yGkX = 0
+            yGkY = 0
+        else:
+            if (yBlob[0][0] > yBlob[1][0]):
+                yGkX = -(yBlob[0][0] + yBlob[1][0] + yBlob[1][2]) / 2 + cX
+                yGkY = -(yBlob[0][1] + yBlob[0][3] / 2 + yBlob[1][1] + yBlob[1][3] / 2) / 2 + cY
+            else:
+                yGkX = -(yBlob[0][0] + yBlob[0][2] + yBlob[1][0]) / 2 + cX
+                yGkY = -(yBlob[0][1] + yBlob[0][3] / 2 + yBlob[1][1] + yBlob[1][3] / 2) / 2 + cY
 
-        #if (yBlob[1][2] * yBlob[1][3] == 0):
-            #yGkX = 0
-            #yGkY = 0
-        #else:
-            #if (yBlob[0][0] > yBlob[1][0]):
-                #yGkX = -(yBlob[0][0] + yBlob[1][0] + yBlob[1][2]) / 2 + cX
-                #yGkY = -(yBlob[0][1] + yBlob[0][3] / 2 + yBlob[1][1] + yBlob[1][3] / 2) / 2 + cY
-            #else:
-                #yGkX = -(yBlob[0][0] + yBlob[0][2] + yBlob[1][0]) / 2 + cX
-                #yGkY = -(yBlob[0][1] + yBlob[0][3] / 2 + yBlob[1][1] + yBlob[1][3] / 2) / 2 + cY
+    if (bFlag == 1):
+        quicksort(blobsB, 0, len(blobsB) - 1)
+        for i in range(len(blobsB) - 1):
+           gkDot = getCenterBetween(blobsB[i], blobsB[i + 1])
+           img.draw_rectangle(blobsB[i], color=(255,255, 0), fill=0)
+           dot(cX - gkDot[0], cY - gkDot[1], color = (255,255,255))
+        img.draw_rectangle(blobsB[len(blobsB) - 1], color=(255,255, 0), fill=0)
+
+    if (bFlag == 1):
+        biggestBlob = blobsB[0]
+        for i in range(len(blobsB) - 1):
+            if (blobsB[i + 1][2] * blobsB[i + 1][3] > biggestBlob[2] * biggestBlob[3]):
+                biggestBlob = blobsB[i + 1]
+        dot(biggestBlob[0] + biggestBlob[2] / 2, biggestBlob[1] + biggestBlob[3] / 2, color = (54,123,11), sz=10)
+        bBiggestBlobAngle = int(math.atan2(cX - (biggestBlob[0] + biggestBlob[2] / 2), cY - (biggestBlob[1] + biggestBlob[3] / 2)) / 3.14 * 180)
 
     if (bFlag == 1):
         bBlob[0] = blobsB[0]
@@ -306,6 +328,12 @@ while(True):
     dot(cX - trueyX, cY - trueyY)
     dot(cX - truebX, cY - truebY)
 
+
+    '''yGKAngle = int(math.atan2(yGkX, yGkY) / 3.14 * 180)
+    yGKDist = int(math.sqrt(yGkX*yGkX + yGkY*yGkY))
+    bGKAngle = int(math.atan2(bGkX, bGkY) / 3.14 * 180)
+    bGKDist = int(math.sqrt(bGkX*bGkX + bGkY*bGkY))'''
+
     yAngle = int(math.atan2(trueyX, trueyY) / 3.14 * 180)
     yDist = int(math.sqrt(trueyX*trueyX + trueyY*trueyY))
     bAngle = int(math.atan2(truebX, truebY) / 3.14 * 180)
@@ -320,8 +348,9 @@ while(True):
         bDist = 0
     #xCoord = (yS * yDist * sin(yAngle / 57.3) + bS * bDist * sin(bAngle / 57.3)) / (yS + bS)
     #yCoord = (yS * yDist * cos(yAngle / 57.3) + bS * bDist * cos(bAngle / 57.3)) / (yS + bS)
-    x = yDist * math.sin(yAngle / 57.3)
-    y = 85 - yDist * math.cos(yAngle / 57.3)
+    x = bDist * math.sin(bAngle / 57.3)
+    y = 85 - bDist * math.cos(bAngle / 57.3)
+    print(yAngle, yBiggestBlobAngle);
 
 
 
@@ -329,6 +358,11 @@ while(True):
       yAngle = int(yAngle + 360)
     if bAngle < 0:
       bAngle = int(bAngle + 360)
+
+    '''if yGKAngle < 0:
+      yGKAngle = int(yGKAngle + 360)
+    if bGKAngle < 0:
+      bGKAngle = int(bGKAngle + 360)'''
 
     if yAngle < 0:
        yAngle = 0
@@ -342,7 +376,7 @@ while(True):
     yDist = int(yDist)
 
     try:
-        #uart.write("a")
+        uart.write("*")
         buf = [yAngle, yDist, bAngle, bDist]
         if(yAngle < 10):
             uart.write(str(0))
@@ -382,6 +416,27 @@ while(True):
             uart.write(str(bDist))
         else:
             uart.write(str(bDist))
+
+
+        if(yBiggestBlobAngle < 10):
+            uart.write(str(0))
+            uart.write(str(0))
+            uart.write(str(yBiggestBlobAngle))
+        elif(yBiggestBlobAngle < 100):
+            uart.write(str(0))
+            uart.write(str(yBiggestBlobAngle))
+        else:
+            uart.write(str(yBiggestBlobAngle))
+
+        if(bBiggestBlobAngle < 10):
+            uart.write(str(0))
+            uart.write(str(0))
+            uart.write(str(bBiggestBlobAngle))
+        elif(bBiggestBlobAngle < 100):
+            uart.write(str(0))
+            uart.write(str(bBiggestBlobAngle))
+        else:
+            uart.write(str(bBiggestBlobAngle))
 
         #print(yAngle, end = " ")
         #print(yDist, end = " ")

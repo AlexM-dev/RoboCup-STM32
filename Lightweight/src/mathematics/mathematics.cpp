@@ -42,7 +42,7 @@ int32_t mathematics::getFormatedAngle(int32_t ang){
 void mathematics::setAngle(int32_t angleT) {
 	angleT = getFormatedAngle(angleT);
 	//m_angle = abs(float(180 - abs(float(angleT)))) * angleT / abs(float(angleT));
-	m_angle = 180 - angleT;
+	m_angle = angleT;
 }
 
 void mathematics::setSpeed(int32_t speedT) {
@@ -52,7 +52,7 @@ void mathematics::setSpeed(int32_t speedT) {
 void mathematics::setVector(int32_t angleT, int32_t speedT) {
 	angleT = getFormatedAngle(angleT);
 	//m_angle = abs(float(180 - abs(float(angleT)))) * angleT / abs(float(angleT));
-	m_angle = 180 - angleT;
+	m_angle = angleT;
 	m_speed = speedT;
 }
 
@@ -88,7 +88,6 @@ void mathematics::calculateSpeed(int32_t angle, int32_t maxSpeed, int32_t &sp1, 
 {
 	if (maxSpeed >= m_period)
 		maxSpeed = m_period;
-	angle = -(angle + 180);
 	/*volatile int loas = time_service::getCurTime() - time_;
 	volatile int32_t s = maxSpeed;
 	volatile int32_t cs = curspeed;
@@ -210,4 +209,12 @@ double mathematics::f(double x) { //Cercle
 
 double mathematics::g(double x) { // f-1(x)
 	return -(-r + sqrt(-2 * x * r - x * x));
+}
+
+int mathematics::max(int a, int b) {
+	return a > b ? a : b;
+}
+
+int mathematics::min(int a, int b) {
+	return a > b ? b : a;
 }

@@ -24,6 +24,8 @@ class mathematics//class for mathematics
 				void setTr( void );
 				void setStartDot(double x, double y);
 				bool isArrived(double x, double y);
+				int max(int a, int b);
+				int min(int a, int b);
     private:
 				void updateStartDot(double x, double y);
         int32_t speed[4];

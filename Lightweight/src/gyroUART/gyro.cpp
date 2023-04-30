@@ -6,8 +6,10 @@ gyro::gyro(Pin &tx, Pin &rx):m_tx(tx),m_rx(rx)
 	m_rx.pinInit();
 	Uart4::uartInit();
 	I = 0;
-	maxSpeed = 3500;
+	maxSpeed = 256;
+	rTime = micros();
 }
+
 void gyro::read()
 {
   if(Uart4::available() > 0){
@@ -16,13 +18,11 @@ void gyro::read()
     int err = targetAngle - rAngle;
     if (err > 180) err-=360;
     else if (err < -180) err+=360;
-		I += err * (millis() - rTime) / 1000;
+		I += err * (micros() - rTime) / 1000;
 
     rotationK = (err * ROT_K) + ((err - oldErr) * ROT_D) + I * ROT_I;
-		if(I > 1000)
-			I = 0;
-    if(err < 3 && err > -3)
-      rotationK = 0;
+    if(err < 2 && err > -2)
+      rotationK = 0, I = 0;
 		else {
 			  if (rotationK > 0 && rotationK < MIN_ROTATION_K)
 					rotationK = MIN_ROTATION_K;
@@ -38,6 +38,11 @@ void gyro::read()
     rotationK = MAX_ROTATION_K;
   if (rotationK < -MAX_ROTATION_K)
     rotationK = -MAX_ROTATION_K;
+	
+	if (rotationK > maxSpeed)
+    rotationK = maxSpeed;
+  if (rotationK < -maxSpeed)
+    rotationK = -maxSpeed;
 }
 
 //Setters
@@ -58,22 +63,26 @@ int gyro::getTargetRobotAngle() {
 	return getFormatedAngle(targetAngle - zeroAngle);
 }
 
-float gyro::getRotationKForRotateToBall(float k) {
+float gyro::getRotationKForRotateToBall(float k, float d)
+{
 	int err = targetAngle - rAngle;
-  if (err > 180) err-=360;
-  else if (err < -180) err+=360;
-	if (abs(float(err)) < 20) {
-		return 0;
+	if (err > 180) err-=360;
+	else if (err < -180) err+=360;
+
+	float rotK = (err * k) + ((err - oldErr) * d);
+	if(err < 2 && err > -2)
+		rotK = 0;
+	else {
+			if (rotK > 0 && rotK < MIN_ROTATION_K)
+				rotK = MIN_ROTATION_K;
+			if (rotK < 0 && rotK > -MIN_ROTATION_K)
+				rotK = -MIN_ROTATION_K;
 	}
-	if (err > 0 && err < MIN_ROTATION_K)
-		err = MIN_ROTATION_K;
-	if (err < 0 && err > -MIN_ROTATION_K)
-		err = -MIN_ROTATION_K;
-	if (err > MAX_ROTATION_K)
-    err = MAX_ROTATION_K;
-  if (err < -MAX_ROTATION_K)
-    err = -MAX_ROTATION_K;
-	return err * k;
+	
+	if (rotK > MAX_ROTATION_K)
+    rotK = MAX_ROTATION_K;
+  if (rotK < -MAX_ROTATION_K)
+    rotK = -MAX_ROTATION_K;
 }
 
 int gyro::getDevFromTarget() {
