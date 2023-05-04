@@ -63,13 +63,13 @@ int gyro::getTargetRobotAngle() {
 	return getFormatedAngle(targetAngle - zeroAngle);
 }
 
-float gyro::getRotationKForRotateToBall(float k, float d)
+float gyro::getRotationKForRotateToBall(float k, float d, float i)
 {
 	int err = targetAngle - rAngle;
 	if (err > 180) err-=360;
 	else if (err < -180) err+=360;
 
-	float rotK = (err * k) + ((err - oldErr) * d);
+	float rotK = (err * k) + ((err - oldErr) * d) + I * i;
 	if(err < 2 && err > -2)
 		rotK = 0;
 	else {
@@ -83,6 +83,12 @@ float gyro::getRotationKForRotateToBall(float k, float d)
     rotK = MAX_ROTATION_K;
   if (rotK < -MAX_ROTATION_K)
     rotK = -MAX_ROTATION_K;
+	
+	if (rotK > maxSpeed)
+    rotK = maxSpeed;
+  if (rotK < -maxSpeed)
+    rotK = -maxSpeed;
+	return rotK;
 }
 
 int gyro::getDevFromTarget() {

@@ -74,6 +74,10 @@ int32_t mathematics::getSpeed( void ) {
 }
 
 void mathematics::addVector(int32_t angleT, int32_t speedT) {
+	if (getSpeed() + speedT > getPeriod()) {
+		setSpeed(getSpeed() * (float(getPeriod()) / (getSpeed() + speedT)));
+		speedT = speedT * (float(getPeriod()) / (getSpeed() + speedT));
+	}
 	int x1 = getSpeed() * sin(getAngle() / DEGREE_TO_RADIAN), 
 	x2 = speedT * sin(angleT / DEGREE_TO_RADIAN), 
 	y1 = getSpeed() * cos(getAngle() / DEGREE_TO_RADIAN), 
@@ -154,8 +158,8 @@ void mathematics::getVecFromTr(double x, double y, unsigned long t, int32_t &sp,
 
 	ang = 90 + atan2(y - startY, x - startX) * 57.3;
 	sp = 100 * sqrt(pow(startY - y, 2) + pow(startX - x, 2));
-	if (sp > 1500)
-		sp = 1500;
+	if (sp > getPeriod() * 0.6)
+		sp = getPeriod() * 0.6;
 	//updateStartDot(newX, newY);
 }
 

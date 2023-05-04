@@ -1,7 +1,7 @@
 EXPOSURE_TIME_SCALE = 1
 
-thresholds = [(36, 59, -27, 18, 33, 61),
-(36, 48, -19, 6, -39, -20)]
+thresholds = [(44, 77, -21, 10, 29, 59),
+(36, 54, -23, 14, -46, -19)]
 
 
 #thresholds = [(42, 67, -12, 15, 7, 37),
@@ -350,7 +350,7 @@ while(True):
     #yCoord = (yS * yDist * cos(yAngle / 57.3) + bS * bDist * cos(bAngle / 57.3)) / (yS + bS)
     x = bDist * math.sin(bAngle / 57.3)
     y = 85 - bDist * math.cos(bAngle / 57.3)
-    print(yAngle, yBiggestBlobAngle);
+    print(yAngle);
 
 
 
