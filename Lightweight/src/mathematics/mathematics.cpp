@@ -23,9 +23,9 @@ mathematics::mathematics()
 		r = 20; 
 	
 		///
-		offsetX = -50; 
-		offsetY = 60;
-		startX = -50;
+		offsetX = 0; 
+		offsetY = 0;
+		startX = 0;
 		startY = 0;
 		side = 1;
 		///
@@ -141,11 +141,10 @@ void mathematics::calculateSpeed(int32_t angle, int32_t maxSpeed, int32_t &sp1, 
 void mathematics::getVecFromTr(double x, double y, unsigned long t, int32_t &sp, int32_t &ang) {
 	double S = V * t;
 	
-	if (startY < offsetY - r) { //Robot on the line
-		startY+=S;
-		startX+=0;
-		//a = 90;
-	} else { //Robot on the cercle
+	//if (startY < offsetY) { //Robot on the line
+	startY+=S;
+	startX+=0;
+	/*} else { //Robot on the cercle
 		a -= (S * 180) / (pi * r);
 		if (a <= 0) {
 			startX = r * side + offsetX;
@@ -154,44 +153,40 @@ void mathematics::getVecFromTr(double x, double y, unsigned long t, int32_t &sp,
 			startX = r * cos(a / 57.3) * side + offsetX;
 			startY = f(r * cos(a / 57.3)) + offsetY;
 		}
-	}
+	}*/
 
 	ang = 90 + atan2(y - startY, x - startX) * 57.3;
-	sp = 100 * sqrt(pow(startY - y, 2) + pow(startX - x, 2));
-	if (sp > getPeriod() * 0.6)
-		sp = getPeriod() * 0.6;
-	//updateStartDot(newX, newY);
+	sp = 15 * sqrt(pow(startY - y, 2) + pow(startX - x, 2));
+	if (sp > 256 * 0.8)
+		sp = 256 * 0.8;
 }
 
 void mathematics::setStartDot(double x, double y) {
 	a = 90;
 	if (x < 0) {
-		side = 1;
-		offsetX = -60; 
-		offsetY = 60;
+		//side = 1;
+		offsetX = -50; 
+		offsetY = 50;
 	} else {
-		side = -1;
-		offsetX = 60;
-		offsetY = 60;
+		//side = -1;
+		offsetX = 50;
+		offsetY = 50;
 	}
 	
-	if (y < offsetY - r) {
+	startY = y;
+	startX = offsetX;
+	/*if (y < offsetY - r) {
 		startY = y;
 		startX = offsetX;
 	} else {
 		startY = y;
 		startX = g(y) * side + offsetX;
-	}
-		/*offsetX = -60; 
-		offsetY = 60;
-		startX = -60;
-		startY = y;
-		side = 1;*/
+	}*/
 	
 }
 
 bool mathematics::isArrived(double x, double y) {
-	if (sqrt(pow(f(r) + offsetY - y, 2) + pow(r * side + offsetX - x, 2)) < 10) {
+	if (sqrt(pow(offsetY - y, 2) + pow(offsetX - x, 2)) < 10) {
 		return 1;
 	} else {
 		return 0;

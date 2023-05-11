@@ -7,7 +7,7 @@
 #include <mpu9250.h>
 
 #define MAX_ROTATION_K 250
-#define MIN_ROTATION_K 35 
+#define MIN_ROTATION_K 35
 #define ROT_K 0.7
 #define ROT_D 0.5
 #define ROT_I 0.03
@@ -30,6 +30,7 @@ class gyro
 		int getMaxSpeed();
 		int getDevFromTarget();
 		float getRotationKForRotateToBall(float k, float d, float i);
+		float getRotationKForRotate(float k, float d, float i);
 	private:
 		Pin m_tx, m_rx;
 		int targetAngle, zeroAngle;

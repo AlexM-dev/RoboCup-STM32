@@ -21,7 +21,7 @@ void gyro::read()
 		I += err * (micros() - rTime) / 1000;
 
     rotationK = (err * ROT_K) + ((err - oldErr) * ROT_D) + I * ROT_I;
-    if(err < 2 && err > -2)
+    if(err < 3 && err > -3)
       rotationK = 0, I = 0;
 		else {
 			  if (rotationK > 0 && rotationK < MIN_ROTATION_K)
@@ -70,7 +70,35 @@ float gyro::getRotationKForRotateToBall(float k, float d, float i)
 	else if (err < -180) err+=360;
 
 	float rotK = (err * k) + ((err - oldErr) * d) + I * i;
-	if(err < 2 && err > -2)
+	if(err < 25 && err > -25)
+		rotK = 0;
+	else {
+			if (rotK > 0 && rotK < 50)
+				rotK = 50;
+			if (rotK < 0 && rotK > -50)
+				rotK = -50;
+	}
+	
+	if (rotK > MAX_ROTATION_K)
+    rotK = MAX_ROTATION_K;
+  if (rotK < -MAX_ROTATION_K)
+    rotK = -MAX_ROTATION_K;
+	
+	if (rotK > maxSpeed)
+    rotK = maxSpeed;
+  if (rotK < -maxSpeed)
+    rotK = -maxSpeed;
+	return rotK;
+}
+
+float gyro::getRotationKForRotate(float k, float d, float i)
+{
+	int err = targetAngle - rAngle;
+	if (err > 180) err-=360;
+	else if (err < -180) err+=360;
+
+	float rotK = (err * k) + ((err - oldErr) * d) + I * i;
+	if(err < 3 && err > -3)
 		rotK = 0;
 	else {
 			if (rotK > 0 && rotK < MIN_ROTATION_K)
