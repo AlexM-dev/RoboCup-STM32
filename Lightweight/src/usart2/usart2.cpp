@@ -62,7 +62,7 @@ namespace Usart2{
        // m_rxPin.pinInit();
         RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
         USART_InitTypeDef uart;
-        uart.USART_BaudRate = 115200;
+        uart.USART_BaudRate = 460800;
         uart.USART_WordLength = USART_WordLength_8b;
         uart.USART_StopBits = USART_StopBits_1;
         uart.USART_Parity = USART_Parity_No;

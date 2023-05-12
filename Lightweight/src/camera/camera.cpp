@@ -18,7 +18,7 @@ void Camera::readData()
 	if(Usart2::available() >= 13){
     char v = Usart2::read();
     if(v == '*'){
-      for(int i = 0; i < 6; ++i){
+      for(int i = 0; i < 4; ++i){
         int a = Usart2::read() - '0';
         int b = Usart2::read() - '0';
         int c = Usart2::read() - '0';
