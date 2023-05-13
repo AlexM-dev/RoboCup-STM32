@@ -33,12 +33,12 @@
 #define SNIPER 3
 #define PENALTY 4
 #define DEBUG 5
-#define CODE GOALKEEPER
+#define CODE PENALTY
 
 #define Ec 2.7182818284
-#define BALL_SENSOR_THRESHOLD 400 
+#define BALL_SENSOR_THRESHOLD 450 
 
-#define BALL_IS_NEAR 30
+#define BALL_IS_NEAR 25
 #define BALL_IS_REALLY_NEAR 70
 
 double convertDist(double dist) {
@@ -92,11 +92,35 @@ int getGKSpeed (int ang, int maxSpeed) {
 	if (abs(float(ang)) < 10) {
 		return 0;
 	}
-	int sp = abs(abs(float(ang)) - 180) * abs(abs(float(ang)) - 180) / 4;
+	int sp = abs(abs(float(ang)) - 180) * abs(abs(float(ang)) - 180) / 5;
 	if (sp > maxSpeed)
 			sp = maxSpeed;
 	if (sp < 50)
 			sp = 50;
+  return sp;
+}
+
+int getSpeedChalandge (int ang, int maxSpeed) {
+	if (abs(float(ang)) < 1) {
+		return 0;
+	}
+	int sp = abs(abs(float(ang)) - 180) * abs(abs(float(ang)) - 180);
+	if (sp > maxSpeed)
+			sp = maxSpeed;
+	if (sp < 70)
+			sp = 70;
+  return sp;
+}
+
+int getSpeedChalandge2 (int dist, int maxSpeed) {
+	if (abs(float(dist)) < 1) {
+		return 0;
+	}
+	int sp = abs(float(dist)) * abs(float(dist)) * 10;
+	if (sp > maxSpeed)
+			sp = maxSpeed;
+	if (sp < 70)
+			sp = 70;
   return sp;
 }
 
@@ -110,7 +134,7 @@ int getFRWSpeed (int ang, int maxSpeed, int minSpeed) {
 }
 
 int getGKSpeedSlow (int dist, int maxSpeed) {
-	int sp = abs(float(dist)) * abs(float(dist)) * 3;
+	int sp = abs(float(dist)) * abs(float(dist)) * 2;
 	if (sp > maxSpeed)
 			sp = maxSpeed;
   return sp;
@@ -517,6 +541,7 @@ int main()
 	int pwm = 120;
 	
 	int dribblerOn = 0;
+	int temptAng = 0;
 	
 	bool mKick = 0;
 	
@@ -547,7 +572,7 @@ int main()
 				ballCathedFlag = 1;
 				ballSensorTimer = millis();
 			} else {
-				if (millis() - ballSensorTimer > 50) {
+				if (millis() - ballSensorTimer > 40) {
 					ballCathedFlag = 0; 
 					ballCathed = !ballCathed;
 				}
@@ -574,14 +599,13 @@ int main()
 		if(changeSideButton.readPin() && pressFlag[1] == 0) {
 				pressFlag[1] = 1;
 		}
-		if(!changeSideButton.readPin() && pressFlag[1] == 1) {
-			pwm+=10;
-			
+		if(!changeSideButton.readPin() && pressFlag[1] == 1) {			
 			pressFlag[1] = 0;
-			dribblerOn++;
+			/*dribblerOn++;
 			if(dribblerOn >= 3) {
 				dribblerOn = 0;
-			}
+			}*/
+			cam.changeSide();
 		}
 		
 		if(imuReset.readPin()){
@@ -594,7 +618,7 @@ int main()
 			if(CODE == ATTACKER) {
 				int speedFastFast = 256 * 0.9;
 				int speedFast = 256 * 0.8;
-				int speedSlow = 256 * 0.45;
+				int speedSlow = 256 * 0.4;
 				
 				int speedBack = 256 * 0.9;
 				gyroFlag = 0;				
@@ -622,8 +646,8 @@ int main()
 									math.setVector(180, (millis() - goBackTimer) / 6 > speedBack ? speedBack : (millis() - goBackTimer) / 6);
 								}								
 								dribblerOn = 2;
-								if (cam.getAnotherCamDist() != 0 && abs(cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3)) < 90) {
-									if (millis() - goBackTimer < 100) {
+								if (cam.getAnotherCamDist() != 0 && abs(cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3)) < 80) {
+									if (millis() - goBackTimer < 200) {
 										mKick = 1;
 									} else {
 										mKick = 0;
@@ -651,7 +675,7 @@ int main()
 							math.setVector(0, 0);
 						}
 					} else {
-						if (cam.getAnotherCamDist() != 0 && abs(cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3)) > 90) {
+						if (cam.getAnotherCamDist() != 0 && abs(cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3)) > 80) {
 							kickState = 0;
 							continue;
 						}
@@ -694,7 +718,7 @@ int main()
 									goBackTimer = millis();
 								}
 							} else if (kickState == 2) {
-								if (millis() - goBackTimer < 250) {
+								if (millis() - goBackTimer < 350) {
 									gyro.setRotation(180 + cam.getAnotherCamAngle());
 								} else {
 									dribblerOn = 2;
@@ -739,11 +763,10 @@ int main()
 					}
 				}
 				
-				int autX = 60;
+				int autX = 55;
 					
-				//if (cam.getCamDist() != 0 || cam.getAnotherCamDist() != 0) {
 					if (cam.getCamDist() != 0) {
-						if(abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) > 40 || abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 50)
+						if(abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) > 50 || abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) < 40)
 						{
 							if (math.getSpeed() > 150) {
 								math.setSpeed(150);
@@ -773,7 +796,7 @@ int main()
 					}
 					
 					if (cam.getAnotherCamDist() != 0) {
-						if(abs(cam.getAnotherCamDist() * sin(cam.getAnotherCamAngle() / 57.3)) > 40 || abs(cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3)) < 50)
+						if(abs(cam.getAnotherCamDist() * sin(cam.getAnotherCamAngle() / 57.3)) > 50 || abs(cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3)) < 40)
 						{
 							if (math.getSpeed() > 150) {
 								math.setSpeed(150);
@@ -802,15 +825,14 @@ int main()
 							math.addVector(90 - gyro.getTargetRobotAngle(), math.getSpeed() + speedSlow);
 						}
 					}
-				//}
 				//math.setVector(0, 0);
 				//gyro.setRotation(180);
 				k = gyro.getAngle();
 				//kickSector = 2;
 				//dribblerOn = 2;
 			} else if (CODE == GOALKEEPER) {
-				int speedGK = 210; 			
-				int speedGKSlow = 210; 							
+				int speedGK = 230; 			
+				int speedGKSlow = 230; 							
 				math.setVector(0, 0);
 				int angAng = 130;
 				int tAng = 0;
@@ -822,6 +844,11 @@ int main()
 				
 				int yCoord = abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3));
 
+				math.setVector(0, 0);
+				gyro.setMaxSpeed(256);
+				dribblerOn = 0;
+				cam.setGyroAng(gyro.getDev());
+				
 				
 				if(tsop.isCanSee()){
 					if (abs(float(tAng)) < 170 || abs(float(tAng)) > 10) {
@@ -845,7 +872,7 @@ int main()
 									math.setVector(cam.getCamAngle() + 90, getGKSpeed(tAng, speedGK));
 								}
 							}
-							if (yCoord < 30) {//(abs(float(cam.getCamAngle())) < 130) {
+							if (yCoord < 20) {//(abs(float(cam.getCamAngle())) < 130) {
 								if (cam.getCamAngle() < 0 && tAng < 0) {
 									math.setVector(0, 0);
 								}
@@ -870,42 +897,41 @@ int main()
 				}
 				
 				//STOP FLAGS
-				if (yCoord < 30) { //(abs(float(cam.getCamAngle())) < 130) {
+				/*if (yCoord < 30) { //(abs(float(cam.getCamAngle())) < 130) {
 					if((abs(double(cam.getCamAngle())) > 90 && tsop.getDist() > 50) && tAng < 0) {
 						math.setVector(0, 0);
 					}
 					if((abs(double(cam.getCamAngle())) > 90 && tsop.getDist() > 50) && tAng > 0) {
 						math.setVector(0, 0);
 					}
-				}
+				}*/
 				
-				gkGo = 0; //TEMP
 				if(tsop.isCanSee()) {
-					if (abs(float(tAng)) > 160 && tsop.getDist() > 30) { 
+					if (abs(float(tAng)) > 160 && tsop.getDist() > 70 && abs(float(tsop.getAngle())) < 90) { 
 						if (gkGo == 0) { 
 							gkGo = 1;
 							timer = millis();
 						}
-						if (gkGo == 1 && millis() - timer > 1500) { 
+						if (gkGo == 1 && millis() - timer > 6000) { 
 							gkGo = 2;
 							timer = millis();
+							temptAng = tAng + 180;
 						}
-						if (gkGo == 2 && millis() - timer < 3000) { 
-							math.setVector(tsop.getAngle() + AngleOffset(tsop.getAngle(), tsop.getDist()), 140);
+						if (gkGo == 2 && millis() - timer < 6500) { 
+							math.setVector(temptAng, 200);
 						}
-						if (gkGo == 2 && millis() - timer >= 3000) { 
+						if (gkGo == 2 && millis() - timer >= 6500) { 
 							gkGo = 0;
 						}
 					}
 				}
-				gkGo = 0; //TEMP
 
 				if (gkGo != 2) {
 					if (abs(float(cam.getCamAngle())) > angAng) {	
-						if (yCoord > 30) {
-							math.addVector(180, getGKSpeedSlow(yCoord - 30, speedGK));
+						if (yCoord > 25) {
+							math.addVector(180, getGKSpeedSlow(yCoord - 25, speedGK));
 						} else {
-							math.addVector(0, getGKSpeedSlow(yCoord - 30, speedGK));
+							math.addVector(0, getGKSpeedSlow(yCoord - 25, speedGK));
 						}
 					} else {
 						if (cam.getCamDist() > 40) {
@@ -915,12 +941,20 @@ int main()
 						}
 					}
 				} else {
-					if (abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) > 50 || tsop.getDist() < 20) {
+					if(cam.getAnotherCamDist() * sin(cam.getAnotherCamAngle() / 57.3) < -50)  
+					{
+						math.addVector(-90 - gyro.getTargetRobotAngle(), math.getSpeed() + 100);
+					}
+					if(cam.getAnotherCamDist() * sin(cam.getAnotherCamAngle() / 57.3) > 50)  
+					{
+						math.addVector(90 - gyro.getTargetRobotAngle(), math.getSpeed() + 100);
+					}
+					if (abs(cam.getCamDist() * sin(cam.getCamAngle() / 57.3)) > 40 || tsop.getDist() < 30 || abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3)) > 70) {
 						gkGo = 0;
 					}
 				}
 				
-				if (yCoord < 15) {
+				if (yCoord < 10) {
 					math.setVector(0, speedGK);
 				} 
 				
@@ -928,16 +962,16 @@ int main()
 				//math.setVector(0, 0);
 				k = gyro.getAngle();
 			} else if (CODE == DEBUG) {
-				dribblerOn = 0;
+				/*dribblerOn = 0;
 				if (tsop.isCanSee()) {
 					if (tsop.getDist() > BALL_IS_REALLY_NEAR) {
 						dribblerOn = 2;
 					} else if (tsop.getDist() > BALL_IS_NEAR) {
 						dribblerOn = 1;
 					}
-				}
+				}*/
 			} else if (CODE == SNIPER) {
-				int speed = 256 * 0.55;
+				int speed = 256 * 0.4;
 				gyroFlag = 0;				
 				math.setVector(0, 0);
 				gyro.setMaxSpeed(256);
@@ -948,20 +982,25 @@ int main()
 				if (kickState == 0) {					 
 					if (tsop.isCanSee() || ballCathed) {
 						if (ballCathed) {
-							float dX = cam.getAnotherCamDist() * sin(cam.getAnotherCamAngle() / 57.3);
-							float dY = cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3);
+							float dX = cam.getCamDist() * sin(cam.getCamAngle() / 57.3);
+							float dY = abs(cam.getCamDist() * cos(cam.getCamAngle() / 57.3));
 							gyro.setMaxSpeed(50);
-							math.setVector(cam.getAnotherCamAngle() > 0 ? -90 : 90, getGKSpeed(cam.getAnotherCamAngle(), speed));
-							if (dY < 30) {
-								math.addVector(180, getGKSpeedSlow(30 - dY, speed));
+							math.setVector(cam.getAnotherCamAngle() > 0 ? -90 : 90, getSpeedChalandge(cam.getAnotherCamAngle(), speed));
+							if (dY > 70) {
+								math.addVector(0, getSpeedChalandge(abs(70. - dY), speed));
 							} else {
-								math.addVector(0, getGKSpeedSlow(dY - 30, speed));
+								math.addVector(180, getSpeedChalandge(abs(70. - dY), speed));
 							}
 							dribblerOn = 2;
 							
-							if (abs(30 - dY) < 5 && abs(float(cam.getAnotherCamAngle())) < 5) {
+							if (abs(70 - dY) < 1 && abs(float(cam.getAnotherCamAngle())) < 1) {
 								kickTimer = millis();
 								kickState = 1;
+								pwm = 260;
+							}
+							
+							if (math.getSpeed() > speed) {
+								math.setSpeed(speed);
 							}
 						} else {
 							dribblerOn = 2;
@@ -971,19 +1010,126 @@ int main()
 						math.setVector(0, 0);
 					}
 				} else {
-					dribblerOn = 2;
-					if (millis() - kickTimer < 300) {
-						math.setVector(180, 250);
-					} else if (millis() - kickTimer < 500) {
-						math.setVector(135, 250);
-					} else if (millis() - kickTimer < 1000) {
+					if (millis() - kickTimer < 1000) {
+						//dribblerOn = 3;
+						//pwm = 260 - (millis() - kickTimer) / 5;
+						math.setVector(0, 0);
+						dribblerOn = 2;
+					} else if (millis() - kickTimer < 1100) {
+						math.setVector(0, 0);
+						dribblerOn = 0;
+					} else if (millis() - kickTimer < 2000) {
 						math.setVector(90, 250);
 					} else {
 						math.setVector(0, 0);
 					}
 				}
+				k = gyro.getAngle();
 			} else if (CODE == PENALTY) {
-				//TODO
+				int speed = 256 * 0.4;
+				gyroFlag = 0;				
+				math.setVector(0, 0);
+				gyro.setMaxSpeed(256);
+				dribblerOn = 0;
+				cam.setGyroAng(gyro.getDev());
+				gyro.setRotation(0);
+				
+				if (kickState == 0) {					 
+					if (tsop.isCanSee() || ballCathed) {
+						if (ballCathed) {
+							gyro.setRotation(180 + cam.getAnotherCamAngle());
+							gyro.setMaxSpeed(70);
+							dribblerOn = 2;
+							if(gyro.getDevFromTarget() < 5) {
+								kickState = 1;
+								kickTimer = millis();
+							}
+						} else {
+							dribblerOn = 2;
+							math.setVector(tsop.getAngle() + AngleOffset(tsop.getAngle(), tsop.getDist()), speed);
+						}
+					} else {
+						math.setVector(0, 0);
+					}
+				} else {
+						dribblerOn = 2;
+						gyro.setRotation(180 + cam.getAnotherCamAngle());
+						gyro.setMaxSpeed(70);
+						if (kickState == 1) {
+							if(gyro.getDevFromTarget() >= 5) {
+									kickState = 0;
+									continue;
+							}
+							if (millis() - kickTimer > 1000) {
+								kickState = 2;
+								kickTimer = millis();
+							}
+						} else {
+							
+						}
+						
+						if (millis() - kickTimer > 1000) {
+							kickState = 0;
+							dribblerOn = 0;
+							kickSector = 0;
+							ballCathed = 0;
+							math.setVector(0, 0);
+						} else {
+							if (kickState == 1) {
+								int dY = cam.getAnotherCamDist() * sin(cam.getAnotherCamAngle() / 57.3);
+								int dX = cam.getAnotherCamDist() * cos(cam.getAnotherCamAngle() / 57.3);
+								if (abs(float(cam.getAnotherCamAngle())) > 30) {
+										if (dY < 0) {
+											kickSector = 1;
+										} else {
+											kickSector = 6;
+										}
+								} else {
+									if (dY < -30) {
+										kickSector = 2;
+									} else if (dY < 0) {
+										kickSector = 3;
+									} else if (dY < 30) {
+										kickSector = 4;
+									} else {
+										kickSector = 5;
+									}
+								}
+								kickState = 2;
+								
+								if (mKick == 1) {
+									goBackTimer = millis();
+								}
+							} else if (kickState == 2) {
+								if (millis() - goBackTimer < 350) {
+									gyro.setRotation(180 + cam.getAnotherCamAngle());
+								} else {
+									dribblerOn = 2;
+									switch(kickSector) {
+									case 1:
+										gyro.setRotation(-25 + cam.getAnotherCamAngle());
+										break; 
+									case 2:
+										gyro.setRotation(25 + cam.getAnotherCamAngle());
+										break;
+									case 3:
+										gyro.setRotation(25 + cam.getAnotherCamAngle());
+										break;
+									case 4:
+										gyro.setRotation(-25 + cam.getAnotherCamAngle());
+										break;
+									case 5:
+										gyro.setRotation(-25 + cam.getAnotherCamAngle());
+										break;
+									case 6:
+										gyro.setRotation(25 + cam.getAnotherCamAngle());
+										break;
+									}
+								}
+							}
+						}
+				}
+				k = gyro.getAngle();
 			}
 		} else {
 			//dribbler.pwm(90);
@@ -993,13 +1139,16 @@ int main()
 			k = 0;
 			testAng = tsop.getDist();
 			kickSector = 0;
+			kickState = 0;
 		}		
 		if (dribblerOn == 0) {
 			dribbler.pwm(120);
 		} else if (dribblerOn == 1) {
-			dribbler.pwm(250);
+			dribbler.pwm(260);
 		} else if (dribblerOn == 2) {
-			dribbler.pwm(250);
+			dribbler.pwm(260);
+		} else if (dribblerOn == 3) {
+			dribbler.pwm(pwm);
 		}
 		math.calculateSpeed(math.getAngle(), math.getSpeed(), sp1, sp2, sp3, sp4);
 		
