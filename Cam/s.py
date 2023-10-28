@@ -1,17 +1,18 @@
-EXPOSURE_TIME_SCALE = 1
+EXPOSURE_TIME_SCALE = 0.5
+#EXPOSURE_TIME_SCALE = 1.5
 
-thresholds = [(38, 67, -25, 9, 37, 65),
-(49, 70, -8, 15, -48, -24)]
-
-
-#thresholds = [(62, 83, 9, 49, 24, 64),
+#thresholds = [(26, 46, 4, 27, 44, 62),
 #(49, 70, -8, 15, -48, -24)]
 
-#cX = 160
-#cY = 121
 
-cX = 170
-cY = 135
+thresholds = [(63, 89, -28, 13, 25, 63),
+(17, 37, 11, 37, -56, -29)]
+
+cX = 160
+cY = 121
+
+#cX = 167
+#cY = 133
 
 import sensor, image, math, pyb, time, random
 from pyb import UART
@@ -350,7 +351,7 @@ while(True):
     #yCoord = (yS * yDist * cos(yAngle / 57.3) + bS * bDist * cos(bAngle / 57.3)) / (yS + bS)
     x = bDist * math.sin(bAngle / 57.3)
     y = 85 - bDist * math.cos(bAngle / 57.3)
-    print(yAngle);
+    print(yDist);
 
 
 

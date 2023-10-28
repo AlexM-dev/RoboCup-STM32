@@ -21,7 +21,7 @@ void gyro::read()
 		I += err * (micros() - rTime) / 1000;
 
     rotationK = (err * ROT_K) + ((err - oldErr) * ROT_D) + I * ROT_I;
-    if(err < 3 && err > -3)
+    if(err < 5 && err > -5)
       rotationK = 0, I = 0;
 		else {
 			  if (rotationK > 0 && rotationK < MIN_ROTATION_K)

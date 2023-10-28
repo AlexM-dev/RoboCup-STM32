@@ -1,11 +1,12 @@
-EXPOSURE_TIME_SCALE = 1
+EXPOSURE_TIME_SCALE = 1.5
+#EXPOSURE_TIME_SCALE = 1.5
 
-thresholds = [(38, 67, -25, 9, 37, 65),
-(49, 70, -8, 15, -48, -24)]
+#thresholds = [(26, 46, 4, 27, 44, 62),
+#(49, 70, -8, 15, -48, -24)]
 
 
-#thresholds = [(62, 83, 9, 49, 24, 64),
-(49, 70, -8, 15, -48, -24)]
+thresholds = [(56, 85, 0, 38, 25, 127),
+(19, 41, -7, 32, -60, -29)]
 
 #cX = 160
 #cY = 121
@@ -194,7 +195,7 @@ while(True):
     yGkX = 0
     yGkY = 0
 
-    for blob in img.find_blobs(thresholds, pixels_threshold=50, area_threshold=50, merge=True, margin=20):
+    for blob in img.find_blobs(thresholds, pixels_threshold=50, area_threshold=50, merge=False, margin=3):
         if blob.code() == 1:
             if (blob[2] * blob[3] > firstYArea):
                 secondYArea = firstYArea
@@ -350,7 +351,7 @@ while(True):
     #yCoord = (yS * yDist * cos(yAngle / 57.3) + bS * bDist * cos(bAngle / 57.3)) / (yS + bS)
     x = bDist * math.sin(bAngle / 57.3)
     y = 85 - bDist * math.cos(bAngle / 57.3)
-    print(yAngle);
+    print(yBiggestBlobAngle, yAngle);
 
 
 
@@ -358,6 +359,11 @@ while(True):
       yAngle = int(yAngle + 360)
     if bAngle < 0:
       bAngle = int(bAngle + 360)
+
+    if yBiggestBlobAngle < 0:
+      yBiggestBlobAngle = int(yBiggestBlobAngle + 360)
+    if bBiggestBlobAngle < 0:
+      bBiggestBlobAngle = int(bBiggestBlobAngle + 360)
 
     '''if yGKAngle < 0:
       yGKAngle = int(yGKAngle + 360)
@@ -378,47 +384,8 @@ while(True):
     try:
         uart.write("*")
         buf = [yAngle, yDist, bAngle, bDist]
-        if(yAngle < 10):
-            uart.write(str(0))
-            uart.write(str(0))
-            uart.write(str(yAngle))
-        elif(yAngle < 100):
-            uart.write(str(0))
-            uart.write(str(yAngle))
-        else:
-            uart.write(str(yAngle))
-        if(yDist < 10):
-            uart.write(str(0))
-            uart.write(str(0))
-            uart.write(str(yDist))
-        elif(yDist < 100):
-            uart.write(str(0))
-            uart.write(str(yDist))
-        else:
-            uart.write(str(yDist))
-        if(bAngle < 10):
-            uart.write(str(0))
-            uart.write(str(0))
-            uart.write(str(bAngle))
-        elif(bAngle < 100):
-            uart.write(str(0))
-            uart.write(str(bAngle))
-            #print("chop")
-        else:
-            uart.write(str(bAngle))
-            #print("keka")
-        if(bDist < 10):
-            uart.write(str(0))
-            uart.write(str(0))
-            uart.write(str(bDist))
-        elif(bDist < 100):
-            uart.write(str(0))
-            uart.write(str(bDist))
-        else:
-            uart.write(str(bDist))
 
-
-        '''if(yBiggestBlobAngle < 10):
+        if(yBiggestBlobAngle < 10):
             uart.write(str(0))
             uart.write(str(0))
             uart.write(str(yBiggestBlobAngle))
@@ -428,6 +395,16 @@ while(True):
         else:
             uart.write(str(yBiggestBlobAngle))
 
+        if(yDist < 10):
+            uart.write(str(0))
+            uart.write(str(0))
+            uart.write(str(yDist))
+        elif(yDist < 100):
+            uart.write(str(0))
+            uart.write(str(yDist))
+        else:
+            uart.write(str(yDist))
+
         if(bBiggestBlobAngle < 10):
             uart.write(str(0))
             uart.write(str(0))
@@ -436,7 +413,17 @@ while(True):
             uart.write(str(0))
             uart.write(str(bBiggestBlobAngle))
         else:
-            uart.write(str(bBiggestBlobAngle))'''
+            uart.write(str(bBiggestBlobAngle))
+
+        if(bDist < 10):
+            uart.write(str(0))
+            uart.write(str(0))
+            uart.write(str(bDist))
+        elif(bDist < 100):
+            uart.write(str(0))
+            uart.write(str(bDist))
+        else:
+            uart.write(str(bDist))
 
         #print(yAngle, end = " ")
         #print(yDist, end = " ")
